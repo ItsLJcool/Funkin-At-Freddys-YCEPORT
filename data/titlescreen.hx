@@ -1,3 +1,4 @@
+//a
 function create() {
     afton = new FlxSprite(350, 225);
     afton.frames = Paths.getSparrowAtlas('aftonTitle');
@@ -28,16 +29,14 @@ function create() {
 }
 
 //yoink
+// youink? theres a source code?
 function aftonGlitch() {
-		var aftonSpooky:Float = FlxG.random.float(2.0, 5.0);
-
-		new FlxTimer().start(aftonSpooky, function(tmr:FlxTimer)
-		{
-			afton.animation.play('spook');
-			new FlxTimer().start(0.1, function(tmr:FlxTimer)
-			{
-				afton.animation.play('idle');
-				aftonGlitch();
-			});
+	var aftonSpooky:Float = FlxG.random.float(2.0, 5.0);
+	new FlxTimer().start(aftonSpooky, function(tmr:FlxTimer) {
+		afton.animation.play('spook');
+		new FlxTimer().start(0.1, function(tmr:FlxTimer) {
+			afton.animation.play('idle');
+			aftonGlitch();
 		});
+	});
 }
