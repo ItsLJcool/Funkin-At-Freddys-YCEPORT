@@ -1,3 +1,5 @@
+//Need Help Moving Camera On Character Change
+
 function create() {
     defaultCamZoom = 0.9;
     boyfriend.x += 100;
@@ -79,6 +81,16 @@ function createPost() {
     iconP1.changeCharacter(mod + ":bf-matpat");
 }
 
+function onGenerateStaticArrows() {
+    whiteScreen = new FlxSprite(-600, -400).makeGraphic(Std.int(FlxG.width * 5), Std.int(FlxG.height * 5), 0xFFFFFFFF);
+    whiteScreen.alpha = 0;
+    PlayState.add(whiteScreen);
+
+    greenscreen = new FlxSprite(-600, -400).makeGraphic(Std.int(FlxG.width * 5), Std.int(FlxG.height * 5), 0xFF00FF15);
+    greenscreen.alpha = 0;
+    PlayState.add(greenscreen);
+}
+
 function stepHit(curStep) {
     if(curStep == 256) {
         gt.visible = true;
@@ -106,8 +118,37 @@ function stepHit(curStep) {
     if(curStep == 272) {
         gt.animation.play('shinestat');
         defaultCamZoom = 1.2;
+        gt.scrollFactor.set(0.7,0.7);
     }
     if(curStep == 576) {
+        whiteScreen.alpha = 1;
+        FlxTween.tween(whiteScreen, {alpha: 0}, 1);
+        gt.visible = false;
+        background.visible = false;
+        floor.visible = false;
+        gf.visible = true;
+        dad.visible = true;
+        boyfriend.visible = true;
+        bfSecondCharacter.visible = false; 
+        dadSecondCharacter.visible = false; 
+        defaultCamZoom = 0.9;
+    }
+    if(curStep == 960) {
+        greenscreen.alpha = 1;
+        FlxTween.tween(greenscreen, {alpha: 0}, 1);
+        gt.visible = true;
+        background.visible = true;
+        floor.visible = true;
+        gf.visible = false;
+        dad.visible = false;
+        boyfriend.visible = false;
+        bfSecondCharacter.visible = true; 
+        dadSecondCharacter.visible = true;
+        defaultCamZoom = 1.2;
+    }
+    if(curStep == 1088) {
+        whiteScreen.alpha = 1;
+        FlxTween.tween(whiteScreen, {alpha: 0}, 1);
         gt.visible = false;
         background.visible = false;
         floor.visible = false;
@@ -121,10 +162,11 @@ function stepHit(curStep) {
 }
 
 function updatePost() {
-    if (gt.animation.curAnim.name = 'shine' || gt.animation.curAnim.name = 'up' || gt.animation.curAnim.name = 'down' || gt.animation.curAnim.name = 'left' || gt.animation.curAnim.name = 'right') {
-      PlayState.camFollow.y = -100;
-      FlxG.camera.focusOn(PlayState.camFollow.getPosition());
-    }
+    // if (gt.animation.curAnim.name = 'shine' || gt.animation.curAnim.name = 'up' || gt.animation.curAnim.name = 'down' || gt.animation.curAnim.name = 'left' || gt.animation.curAnim.name = 'right') {
+    //   PlayState.camFollow.y = -100;
+    //   FlxG.camera.focusOn(PlayState.camFollow.getPosition());
+    // }
+    // error for invalid operator =
 
     var animName = "";
     if (PlayState.section.mustHitSection)
