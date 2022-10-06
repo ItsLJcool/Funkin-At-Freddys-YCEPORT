@@ -1,33 +1,36 @@
 {
-	"titleBarName": "Friday Night Funkin' - Funkin' At Freddy's",
+	"discordRpc": null,
+	"skinnableGFs": [],
+	"downloadLink": null,
+	"locked": false,
+	"BFskins": [],
+	"name": "Funkin' At Freddy's",
+	"keyNumbers": [
+		4
+	],
+	"description": "We Need 3",
 	"intro": {
+		"newgrounds": "newgrounds",
 		"authors": [
 			"ninjamuffin99",
 			"phantomArcade",
 			"kawaisprite",
 			"evilsk8er"
 		],
+		"assoc": [
+			"In association",
+			"with"
+		],
 		"gameName": [
 			"Friday Night Funkin'",
 			"YoshiCrafter",
 			"Engine"
 		],
-		"newgrounds": "newgrounds",
-		"bpm": 102,
-		"assoc": [
-			"In association",
-			"with"
-		],
-		"present": "present"
+		"present": "present",
+		"bpm": 102
 	},
 	"skinnableBFs": [],
-	"skinnableGFs": [],
-	"GFskins": [],
-	"keyNumbers": [
-		4
-	],
-	"BFskins": [],
-	"name": "Funkin' At Freddy's",
-	"locked": false,
-	"description": "We Need 3"
+	"titleBarName": "Friday Night Funkin' - Funkin' At Freddy's",
+	"downloadLinkAlt": null,
+	"GFskins": []
 }

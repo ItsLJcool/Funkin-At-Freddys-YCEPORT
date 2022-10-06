@@ -1,1 +1,14 @@
-{"songs":[]}
+{
+	"songs": [
+		{
+			"bpm": 180,
+			"difficulties": [
+				"Normal"
+			],
+			"displayName": null,
+			"char": "matpat",
+			"name": "Just-A-Theory",
+			"color": "#9FEA9A"
+		}
+	]
+}
