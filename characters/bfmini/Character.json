@@ -1,0 +1,111 @@
+{
+	"arrowColors": null,
+	"camOffset": {
+		"x": 0,
+		"y": 0
+	},
+	"globalOffset": {
+		"x": 170,
+		"y": 520
+	},
+	"healthbarColor": "#0066CC",
+	"flipX": true,
+	"anims": [
+		{
+			"indices": null,
+			"x": 0,
+			"y": 0,
+			"anim": "BF NOTE RIGHT MISS",
+			"loop": false,
+			"name": "singRIGHTmiss",
+			"framerate": 12
+		},
+		{
+			"indices": null,
+			"x": 0,
+			"y": 0,
+			"anim": "BF NOTE DOWN HIT",
+			"loop": false,
+			"name": "singDOWN",
+			"framerate": 12
+		},
+		{
+			"indices": null,
+			"x": 0,
+			"y": 0,
+			"anim": "BF NOTE LEFT MISS",
+			"loop": false,
+			"name": "singLEFTmiss",
+			"framerate": 12
+		},
+		{
+			"indices": null,
+			"x": 0,
+			"y": 0,
+			"anim": "BF NOTE UP HIT",
+			"loop": false,
+			"name": "singUP",
+			"framerate": 12
+		},
+		{
+			"indices": null,
+			"x": 0,
+			"y": 0,
+			"anim": "BF idle dance",
+			"loop": false,
+			"name": "idle",
+			"framerate": 2
+		},
+		{
+			"indices": null,
+			"x": 0,
+			"y": 0,
+			"anim": "BF NOTE DOWN MISS",
+			"loop": false,
+			"name": "singDOWNmiss",
+			"framerate": 12
+		},
+		{
+			"indices": null,
+			"x": 0,
+			"y": 0,
+			"anim": "BF NOTE RIGHT HIT",
+			"loop": false,
+			"name": "singRIGHT",
+			"framerate": 12
+		},
+		{
+			"indices": null,
+			"x": 0,
+			"y": 0,
+			"anim": "BF NOTE LEFT HIT",
+			"loop": false,
+			"name": "singLEFT",
+			"framerate": 12
+		},
+		{
+			"indices": null,
+			"x": 0,
+			"y": 0,
+			"anim": "BF NOTE UP MISS",
+			"loop": false,
+			"name": "singUPmiss",
+			"framerate": 12
+		}
+	],
+	"danceSteps": [
+		"idle"
+	],
+	"antialiasing": false,
+	"healthIconSteps": [
+		[
+			20,
+			0
+		],
+		[
+			0,
+			1
+		]
+	],
+	"scale": 2
+}
