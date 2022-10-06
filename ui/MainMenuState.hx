@@ -1,15 +1,15 @@
-//a
+// //a
 
-function create() {
-}
+// function create() {
+// }
 
-function createPost() {
+// function createPost() {
     
-    for (i in state.menuItems) {
-        state.menuItems.remove(i);
-    }
+//     for (i in state.menuItems) {
+//         state.menuItems.remove(i);
+//     }
 
-    state.bg.scale.set(1,1);
-    state.bg.scrollFactor.set();
+//     state.bg.scale.set(1,1);
+//     state.bg.scrollFactor.set();
 
-}
+// }
