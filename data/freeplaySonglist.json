@@ -1,14 +1,92 @@
 {
 	"songs": [
 		{
-			"bpm": 180,
 			"difficulties": [
 				"Normal"
 			],
 			"displayName": null,
 			"char": "matpat",
+			"bpm": 180,
 			"name": "Just-A-Theory",
 			"color": "#9FEA9A"
+		},
+		{
+			"displayName": null,
+			"difficulties": [
+				"Easy",
+				"Normal",
+				"Hard"
+			],
+			"char": "afton",
+			"color": "#9F58B6",
+			"name": "Celebrate",
+			"bpm": 145
+		},
+		{
+			"difficulties": [
+				"Easy",
+				"Normal",
+				"Hard"
+			],
+			"displayName": null,
+			"char": "afton",
+			"bpm": 175,
+			"name": "Follow-me",
+			"color": "#C26ECF"
+		},
+		{
+			"displayName": null,
+			"difficulties": [
+				"Easy",
+				"Normal",
+				"Hard"
+			],
+			"char": "afton-night",
+			"color": "#9F4AC4",
+			"name": "midnight",
+			"bpm": 160
+		},
+		{
+			"difficulties": [
+				"Easy",
+				"Normal",
+				"Hard"
+			],
+			"displayName": null,
+			"char": "suitedAfton",
+			"bpm": 195,
+			"name": "you-can't",
+			"color": "#B1B323"
+		},
+		{
+			"displayName": null,
+			"difficulties": [
+				"Normal"
+			],
+			"char": "springtrap",
+			"color": "#465F25",
+			"name": "salvage",
+			"bpm": 160
+		},
+		{
+			"displayName": null,
+			"difficulties": [
+				"Normal"
+			],
+			"char": "springtrap",
+			"color": "#4D7128",
+			"name": "nightmare",
+			"bpm": 142
+		},
+		{
+			"bpm": 190,
+			"difficulties": [
+				"Normal"
+			],
+			"displayName": null,
+			"char": "sb",
+			"name": "umbra",
+			"color": "#560053"
 		}
 	]
 }

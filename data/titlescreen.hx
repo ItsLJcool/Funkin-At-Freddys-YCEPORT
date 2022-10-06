@@ -30,6 +30,7 @@ function create() {
 
 //yoink
 // youink? theres a source code?
+//I Found The Version 1 Source
 function aftonGlitch() {
 	var aftonSpooky:Float = FlxG.random.float(2.0, 5.0);
 	new FlxTimer().start(aftonSpooky, function(tmr:FlxTimer) {
