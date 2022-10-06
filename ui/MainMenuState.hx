@@ -1,12 +1,9 @@
 //a
+import flixel.effects.FlxFlicker;
+import flixel.input.keyboard.FlxKey;
 
-// keys cool
-var controls = FlxG.keys.pressed;
-var controlsJust = FlxG.keys.justPressed;
-var controlsJustNUM = FlxControls.anyJustPressed;
-var controlsNUM = FlxControls.anyPressed;
-
-var selectedSomethin:Bool = false;
+var selectedSomethin:Bool = false;\
+var menuCurSelected:Int = 0;
 var optionShit:Array<String> = ['afton', 'extras', 'options', 'credits'];
 
 var menuItems:Array<FlxSprite> = [];
@@ -52,4 +49,58 @@ function createPost() {
 }
 
 function update(elapsed:Float) {
+    if (!selectedSomethin)
+    {
+        if (controls.UI_UP_P) {
+            CoolUtil.playMenuSFX(0);
+            changeItem(-1);
+        }
+
+        if (controls.UI_DOWN_P) {
+            CoolUtil.playMenuSFX(0);
+            changeItem(1);
+        }
+
+        if (controls.UI_LEFT_P)
+            changeDiff(-1);
+
+        if (controls.UI_RIGHT_P)
+            changeDiff(1);
+
+        if (controls.BACK) {
+            selectedSomethin = true;
+            FlxG.sound.play(Paths.sound('cancelMenu'));
+            MusicBeatState.switchState(new TitleState());
+        }
+
+        if (controls.ACCEPT) {
+                selectedSomethin = true;
+                FlxG.sound.play(Paths.sound('confirmMenu'));
+
+                for (i in menuItems) {
+                    FlxFlicker.flicker(arrowMenu, 1, 0.06, false, false, function(flick:FlxFlicker) {
+                        var daChoice:String = optionShit[menuCurSelected];
+                        switch (daChoice) {
+                            case 'afton':
+                                playStory();
+                            case 'extras':
+                                FlxG.switchState(new FreeplayState());
+                            case 'credits':
+                                FlxG.switchState(new CreditsState());
+                            case 'options':
+                                FlxG.switchState(new options.screens.OptionMain());
+                                    
+                        }
+                    });
+                });
+            }
+        }
+}
+
+function playStory() {
+    trace("not done yet lol");
+}
+
+function changeItem(huh:Int = 0) {
+    
 }
