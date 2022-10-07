@@ -52,6 +52,17 @@ var set:FlxSound = null;
 var go:FlxSound = null;
 
 function create() {
+    blackScreen2 = new FlxSprite(-600, -400).makeGraphic(Std.int(FlxG.width * 5), Std.int(FlxG.height * 5), 0xFF000000);
+    PlayState.add(blackScreen2);
+    blackScreen2.alpha = 0;
+    
+    remove(blackScreen2);
+    insert(100, blackScreen2);
+    remove(boyfriend);
+    insert(100, boyfriend);
+    remove(dad);
+    insert(100, dad);
+
     bars = new FlxSprite(-30, -100).loadGraphic(Paths.image('stages/ac'));
     bars.antialiasing = EngineSettings.antialiasing;
     bars.scale.set(1, 1);
@@ -63,16 +74,6 @@ function create() {
     ready = Paths.sound("intro2-pixel");
     set = Paths.sound("intro1-pixel");
     date = Paths.sound("introGo-pixel");  
-
-    kids = new FlxSprite(-200,0);
-    kids.frames = Paths.getSparrowAtlas('stages/aftonParty/front');
-    kids.animation.addByPrefix('kids', 'front kids', 24, true);
-    kids.animation.play('kids');
-    kids.antialiasing = EngineSettings.antialiasing;
-    kids.scale.set(2.5,2);    
-    kids.updateHitbox();
-    kids.screenCenter();
-    PlayState.add(kids);
 }
 
 function update() {
@@ -82,15 +83,15 @@ function update() {
 }
 
 function onGenerateStaticArrows() {
+    blackScreen1 = new FlxSprite(-600, -400).makeGraphic(Std.int(FlxG.width * 5), Std.int(FlxG.height * 5), 0xFF000000);
+    PlayState.add(blackScreen1);
+
     scan = new FlxSprite(-30, -100).loadGraphic(Paths.image('stages/scanline'));
     scan.scale.set(2, 2);
     scan.cameras = [PlayState.camHUD];
     scan.updateHitbox();
     scan.alpha = 0.6;
     PlayState.add(scan);
-    
-    blackScreen = new FlxSprite(-600, -400).makeGraphic(Std.int(FlxG.width * 5), Std.int(FlxG.height * 5), 0xFF000000);
-    PlayState.add(blackScreen);
 }
 
 
@@ -155,12 +156,6 @@ function onCountdown(countdown:Int) {
     return false;
 }
 
-function stepHit(curStep:Int) {
-    if(curStep == 1) {
-        blackScreen.alpha = 0;
-    }
-}
-
 function onShowCombo(combo:Int, coolText:FlxText) {
     
     if (!(combo >= 10 || combo == 0))
@@ -206,4 +201,61 @@ function onShowCombo(combo:Int, coolText:FlxText) {
     }
 
     return false;
+}
+
+function stepHit(curStep:Int) {
+    if(curStep == 1) {
+        blackScreen1.visible = false;
+    }
+    if(curStep == 960) {
+        blackScreen2.alpha = 0.2;
+    }
+    if(curStep == 964) {
+        blackScreen2.alpha = 0.25;
+    }
+    if(curStep == 968) {
+        blackScreen2.alpha = 0.3;
+    }
+    if(curStep == 972) {
+        blackScreen2.alpha = 0.35;
+    }
+    if(curStep == 976) {
+        blackScreen2.alpha = 0.4;
+    }
+    if(curStep == 980) {
+        blackScreen2.alpha = 0.45;
+    }
+    if(curStep == 984) {
+        blackScreen2.alpha = 0.5;
+    }
+    if(curStep == 988) {
+        blackScreen2.alpha = 0.55;
+    }
+    if(curStep == 992) {
+        blackScreen2.alpha = 0.6;
+    }
+    if(curStep == 996) {
+        blackScreen2.alpha = 0.65;
+    }
+    if(curStep == 1000) {
+        blackScreen2.alpha = 0.7;
+    }
+    if(curStep == 1004) {
+        blackScreen2.alpha = 0.75;
+    }
+    if(curStep == 1008) {
+        blackScreen2.alpha = 0.8;
+    }
+    if(curStep == 1012) {
+        blackScreen2.alpha = 0.85;
+    }
+    if(curStep == 1016) {
+        blackScreen2.alpha = 0.9;
+    }
+    if(curStep == 1020) {
+        blackScreen2.alpha = 1;
+    }
+    if(curStep == 1024) {
+        blackScreen2.alpha = 0;
+    }
 }

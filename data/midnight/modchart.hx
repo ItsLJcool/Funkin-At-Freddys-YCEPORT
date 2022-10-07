@@ -1,5 +1,16 @@
 ratings = [
     {
+        name : "Party!!",
+        image : "Funkin' At Freddy's:weeb/pixelUI/sick-pixel",
+        accuracy : 1,
+        health : 0.10,
+        maxDiff : 50,
+        score : 350,
+        scale : 3,
+        color : "#24DEFF",
+        antialiasing : false                                                                                                                                                                     
+    },
+    {
         name : "Great",
         image : "Funkin' At Freddy's:weeb/pixelUI/good-pixel",
         accuracy : 2 / 3,
@@ -32,17 +43,6 @@ ratings = [
         color : "#804913",
         miss : true,
         antialiasing : false
-    },
-    {
-        name : "Party!!",
-        image : "Funkin' At Freddy's:weeb/pixelUI/sick-pixel",
-        accuracy : 1,
-        health : 0.10,
-        maxDiff : 50,
-        score : 350,
-        scale : 3,
-        color : "#24DEFF",
-        antialiasing : false                                                                                                                                                                     
     }
 ];
 
@@ -63,21 +63,11 @@ function create() {
     ready = Paths.sound("intro2-pixel");
     set = Paths.sound("intro1-pixel");
     date = Paths.sound("introGo-pixel");  
-
-    kids = new FlxSprite(-200,0);
-    kids.frames = Paths.getSparrowAtlas('stages/aftonParty/front');
-    kids.animation.addByPrefix('kids', 'front kids', 24, true);
-    kids.animation.play('kids');
-    kids.antialiasing = EngineSettings.antialiasing;
-    kids.scale.set(2.5,2);    
-    kids.updateHitbox();
-    kids.screenCenter();
-    PlayState.add(kids);
 }
 
 function update() {
-    PlayState.camFollow.y = 500;
-    PlayState.camFollow.x = 600;
+    PlayState.camFollow.y = 720;
+    PlayState.camFollow.x = 1000;
     FlxG.camera.focusOn(PlayState.camFollow.getPosition());
 }
 
@@ -91,6 +81,10 @@ function onGenerateStaticArrows() {
     
     blackScreen = new FlxSprite(-600, -400).makeGraphic(Std.int(FlxG.width * 5), Std.int(FlxG.height * 5), 0xFF000000);
     PlayState.add(blackScreen);
+    
+    whiteScreen = new FlxSprite(-600, -400).makeGraphic(Std.int(FlxG.width * 5), Std.int(FlxG.height * 5), 0xFFFFFFFF);
+    whiteScreen.alpha = 0;
+    PlayState.add(whiteScreen);
 }
 
 
@@ -155,12 +149,6 @@ function onCountdown(countdown:Int) {
     return false;
 }
 
-function stepHit(curStep:Int) {
-    if(curStep == 1) {
-        blackScreen.alpha = 0;
-    }
-}
-
 function onShowCombo(combo:Int, coolText:FlxText) {
     
     if (!(combo >= 10 || combo == 0))
@@ -206,4 +194,26 @@ function onShowCombo(combo:Int, coolText:FlxText) {
     }
 
     return false;
+}
+
+function stepHit(curStep:Int) {
+    if(curStep == 1) {
+        blackScreen.alpha = 0.8;
+    }
+    if(curStep == 896 || curStep == 912 || curStep == 928 || curStep == 940 || curStep == 956 || curStep == 972 || curStep == 992 || curStep == 1008) {
+        blackScreen.alpha = 0.85;
+    }
+    if(curStep == 900 || curStep == 916 || curStep == 932 || curStep == 944 || curStep == 960 || curStep == 980 || curStep == 996 || curStep == 1012) {
+        blackScreen.alpha = 0.9;
+    }
+    if(curStep == 904 || curStep == 920 || curStep == 936 || curStep == 948 || curStep == 964 || curStep == 984 || curStep == 1000 || curStep == 1016) {
+        blackScreen.alpha = 0.95;
+    }
+    if(curStep == 908 || curStep == 924 || curStep == 940 || curStep == 952 || curStep == 968 || curStep == 988 || curStep == 1004 || curStep == 1020) {
+        blackScreen.alpha = 1;
+    }
+    if(curStep == 1024) {
+        whiteScreen.alpha = 1;
+        FlxTween.tween(whiteScreen, {alpha: 0}, 1);
+    }
 }
