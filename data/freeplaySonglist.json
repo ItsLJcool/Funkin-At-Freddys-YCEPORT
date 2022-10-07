@@ -1,92 +1,102 @@
 {
 	"songs": [
 		{
+			"displayName": null,
 			"difficulties": [
 				"Normal"
 			],
-			"displayName": null,
 			"char": "matpat",
-			"bpm": 180,
+			"color": "#9FEA9A",
 			"name": "Just-A-Theory",
-			"color": "#9FEA9A"
+			"bpm": 180
 		},
 		{
-			"displayName": null,
 			"difficulties": [
 				"Easy",
 				"Normal",
 				"Hard"
 			],
+			"displayName": null,
 			"char": "afton",
-			"color": "#9F58B6",
+			"bpm": 145,
 			"name": "Celebrate",
-			"bpm": 145
+			"color": "#9F58B6"
 		},
 		{
+			"displayName": null,
 			"difficulties": [
 				"Easy",
 				"Normal",
 				"Hard"
 			],
-			"displayName": null,
 			"char": "afton",
-			"bpm": 175,
+			"color": "#C26ECF",
 			"name": "Follow-me",
-			"color": "#C26ECF"
+			"bpm": 175
 		},
 		{
-			"displayName": null,
 			"difficulties": [
 				"Easy",
 				"Normal",
 				"Hard"
 			],
+			"displayName": null,
 			"char": "afton-night",
-			"color": "#9F4AC4",
+			"bpm": 160,
 			"name": "midnight",
-			"bpm": 160
+			"color": "#9F4AC4"
 		},
 		{
+			"displayName": null,
 			"difficulties": [
 				"Easy",
 				"Normal",
 				"Hard"
 			],
-			"displayName": null,
 			"char": "suitedAfton",
-			"bpm": 195,
+			"color": "#B1B323",
 			"name": "you-can't",
-			"color": "#B1B323"
+			"bpm": 195
 		},
 		{
-			"displayName": null,
 			"difficulties": [
 				"Normal"
 			],
+			"displayName": null,
 			"char": "springtrap",
-			"color": "#465F25",
+			"bpm": 160,
 			"name": "salvage",
-			"bpm": 160
+			"color": "#465F25"
 		},
 		{
-			"displayName": null,
 			"difficulties": [
 				"Normal"
 			],
+			"displayName": null,
 			"char": "springtrap",
-			"color": "#4D7128",
+			"bpm": 142,
 			"name": "nightmare",
-			"bpm": 142
+			"color": "#4D7128"
 		},
 		{
-			"bpm": 190,
+			"displayName": null,
 			"difficulties": [
 				"Normal"
 			],
-			"displayName": null,
 			"char": "sb",
+			"color": "#560053",
 			"name": "umbra",
-			"color": "#560053"
+			"bpm": 190
+		},
+		{
+			"bpm": 120,
+			"difficulties": [
+				"Hard"
+			],
+			"displayName": "Fourth Wall",
+			"char": "ScottMan",
+			"name": "fourth-wall",
+			"color": "#FFFFFF"
 		}
 	]
 }

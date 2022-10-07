@@ -55,6 +55,13 @@
 			"end_cutscene": null,
 			"cutscene": null,
 			"name": "you-can't"
+		},
+		{
+			"scripts": [],
+			"difficulties": [],
+			"end_cutscene": null,
+			"cutscene": null,
+			"name": "fourth-wall"
 		}
 	]
 }

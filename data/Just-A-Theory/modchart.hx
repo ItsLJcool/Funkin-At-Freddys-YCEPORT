@@ -160,29 +160,3 @@ function stepHit(curStep) {
         defaultCamZoom = 0.9;
     }
 }
-
-function updatePost() {
-    // if (gt.animation.curAnim.name = 'shine' || gt.animation.curAnim.name = 'up' || gt.animation.curAnim.name = 'down' || gt.animation.curAnim.name = 'left' || gt.animation.curAnim.name = 'right') {
-    //   PlayState.camFollow.y = -100;
-    //   FlxG.camera.focusOn(PlayState.camFollow.getPosition());
-    // }
-    // error for invalid operator =
-
-    var animName = "";
-    if (PlayState.section.mustHitSection)
-        animName = PlayState.boyfriend.animation.curAnim.name;
-    else
-        animName = PlayState.dad.animation.curAnim.name;
-    if (animName == 'singLEFT') {
-      PlayState.camFollow.x -= 50;
-    }
-    if (animName == 'singRIGHT') {
-      PlayState.camFollow.x += 50;
-    }
-    if (animName == 'singUP') {
-      PlayState.camFollow.y -= 50;
-    }
-    if (animName == 'singDOWN') {
-      PlayState.camFollow.y += 50;
-    }
-}
