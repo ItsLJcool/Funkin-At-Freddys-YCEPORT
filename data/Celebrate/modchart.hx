@@ -52,7 +52,6 @@ var set:FlxSound = null;
 var go:FlxSound = null;
 
 function create() {
-    // defaultCamZoom = 0.3;
     bars = new FlxSprite(-30, -100).loadGraphic(Paths.image('stages/ac'));
     bars.antialiasing = EngineSettings.antialiasing;
     bars.scale.set(1, 1);
