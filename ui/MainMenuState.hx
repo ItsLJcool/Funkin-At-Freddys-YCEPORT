@@ -1,8 +1,15 @@
 //a
 import flixel.effects.FlxFlicker;
-import flixel.input.keyboard.FlxKey;
+import PlayState;
+import CoolUtil;
 
-var selectedSomethin:Bool = false;\
+// keys cool
+var controls = FlxG.keys.pressed;
+var controlsJust = FlxG.keys.justPressed;
+var controlsJustNUM = FlxControls.anyJustPressed;
+var controlsNUM = FlxControls.anyPressed;
+
+var selectedSomethin:Bool = false;
 var menuCurSelected:Int = 0;
 var optionShit:Array<String> = ['afton', 'extras', 'options', 'credits'];
 
@@ -34,6 +41,13 @@ function createPost() {
     monitor.scrollFactor.set();
     add(monitor);
 
+    arrowMenu = new FlxSprite().loadGraphic(Paths.image('mainmenu/menu_afton_arrow'));
+    arrowMenu.scrollFactor.set(0, 0);
+    arrowMenu.setGraphicSize(Std.int(arrowMenu.width * 0.6));
+    arrowMenu.updateHitbox();
+    arrowMenu.antialiasing = EngineSettings.antialiasing;
+    add(arrowMenu);
+
     for (i in 0...optionShit.length) {
 		var offsetY:Float = 400 - (Math.max(optionShit.length, 4) - 4) * 80;
 		var menuItem:FlxSprite = new FlxSprite(130, (i * 50)  + offsetY).loadGraphic(Paths.image('mainmenu/menu_afton_' + optionShit[i]));
@@ -45,21 +59,21 @@ function createPost() {
         menuItems.push(menuItem);
 		add(menuItems[i]);
 	}
-
+    
+    changeItem(0);
 }
 
 function update(elapsed:Float) {
-    if (!selectedSomethin)
-    {
-        if (controls.UI_UP_P) {
-            CoolUtil.playMenuSFX(0);
-            changeItem(-1);
-        }
 
-        if (controls.UI_DOWN_P) {
+    if (!selectedSomethin) {
+        
+        if (controlsJustNUM([87,38])) {
             CoolUtil.playMenuSFX(0);
-            changeItem(1);
-        }
+            changeItem(-1); }
+
+        if (controlsJustNUM([83,40])) {
+            CoolUtil.playMenuSFX(0);
+            changeItem(1); }
 
         if (controls.UI_LEFT_P)
             changeDiff(-1);
@@ -73,16 +87,17 @@ function update(elapsed:Float) {
             MusicBeatState.switchState(new TitleState());
         }
 
-        if (controls.ACCEPT) {
+        if (controlsJustNUM([13])) {
                 selectedSomethin = true;
                 FlxG.sound.play(Paths.sound('confirmMenu'));
 
-                for (i in menuItems) {
+                for (spr in menuItems) {
                     FlxFlicker.flicker(arrowMenu, 1, 0.06, false, false, function(flick:FlxFlicker) {
                         var daChoice:String = optionShit[menuCurSelected];
+                        trace(daChoice);
                         switch (daChoice) {
                             case 'afton':
-                                playStory();
+                                playSongs();
                             case 'extras':
                                 FlxG.switchState(new FreeplayState());
                             case 'credits':
@@ -92,15 +107,51 @@ function update(elapsed:Float) {
                                     
                         }
                     });
-                });
+                }
             }
         }
 }
+/**
+    Loads the week within PlayState's shit and goes to it lmao
+    !! Don't forget to import LoadingState and PlayState !!
+    @param weekID `Int` The week number. If you're trying to load the first week, for example, you would put 0.
+    @param difficulty `String` The week's difficulty.
 
-function playStory() {
-    trace("not done yet lol");
+    @ Thanks Xav!
+**/
+function playSongs() {
+    // CoolUtil.loadSong(mod, "burning-in-hell", "hard");
+    // LoadingState.loadAndSwitchState(new PlayState_());
 }
 
 function changeItem(huh:Int = 0) {
     
+    menuCurSelected += huh;
+	
+    if (menuCurSelected >= menuItems.length)
+		menuCurSelected = 0;
+	if (menuCurSelected < 0)
+		menuCurSelected = menuItems.length - 1;
+    
+    for (spr in menuItems) {
+		spr.offset.y = 0;
+		spr.updateHitbox();
+
+		var daChoice:String = optionShit[menuCurSelected];
+
+        for (spr in menuItems) {
+			arrowMenu.x = spr.x - 80;	
+
+			switch (daChoice) {
+				case 'afton':
+					arrowMenu.y = spr.y - 157.5;
+				case 'extras':
+					arrowMenu.y = spr.y - 105;
+				case 'options':
+					arrowMenu.y = spr.y - 49;
+				case 'credits':
+					arrowMenu.y = spr.y - 5;	
+			}
+		};	
+	}
 }
