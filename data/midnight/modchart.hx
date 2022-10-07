@@ -1,5 +1,16 @@
 ratings = [
     {
+        name : "Party!!",
+        image : "Funkin' At Freddy's:weeb/pixelUI/sick-pixel",
+        accuracy : 1,
+        health : 0.10,
+        maxDiff : 50,
+        score : 350,
+        scale : 3,
+        color : "#24DEFF",
+        antialiasing : false                                                                                                                                                                     
+    },
+    {
         name : "Great",
         image : "Funkin' At Freddy's:weeb/pixelUI/good-pixel",
         accuracy : 2 / 3,
@@ -32,17 +43,6 @@ ratings = [
         color : "#804913",
         miss : true,
         antialiasing : false
-    },
-    {
-        name : "Party!!",
-        image : "Funkin' At Freddy's:weeb/pixelUI/sick-pixel",
-        accuracy : 1,
-        health : 0.10,
-        maxDiff : 50,
-        score : 350,
-        scale : 3,
-        color : "#24DEFF",
-        antialiasing : false                                                                                                                                                                     
     }
 ];
 
@@ -63,21 +63,11 @@ function create() {
     ready = Paths.sound("intro2-pixel");
     set = Paths.sound("intro1-pixel");
     date = Paths.sound("introGo-pixel");  
-
-    kids = new FlxSprite(-200,0);
-    kids.frames = Paths.getSparrowAtlas('stages/aftonParty/front');
-    kids.animation.addByPrefix('kids', 'front kids', 24, true);
-    kids.animation.play('kids');
-    kids.antialiasing = EngineSettings.antialiasing;
-    kids.scale.set(2.5,2);    
-    kids.updateHitbox();
-    kids.screenCenter();
-    PlayState.add(kids);
 }
 
 function update() {
-    PlayState.camFollow.y = 500;
-    PlayState.camFollow.x = 600;
+    PlayState.camFollow.y = 720;
+    PlayState.camFollow.x = 1000;
     FlxG.camera.focusOn(PlayState.camFollow.getPosition());
 }
 
@@ -157,7 +147,7 @@ function onCountdown(countdown:Int) {
 
 function stepHit(curStep:Int) {
     if(curStep == 1) {
-        blackScreen.alpha = 0;
+        blackScreen.alpha = 0.8;
     }
 }
 

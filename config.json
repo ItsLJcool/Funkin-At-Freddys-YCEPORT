@@ -1,36 +1,36 @@
 {
+	"discordRpc": null,
 	"skinnableGFs": [
 		"gf"
 	],
-	"discordRpc": null,
+	"locked": false,
 	"BFskins": [],
 	"downloadLink": null,
-	"locked": false,
+	"name": "Funkin' At Freddy's",
 	"keyNumbers": [
 		4
 	],
-	"name": "Funkin' At Freddy's",
-	"skinnableBFs": [],
+	"description": "We Need 3",
 	"intro": {
+		"newgrounds": "Your Mom",
 		"authors": [
 			"ItsLJCool",
 			"ZanderTheBunny"
-		],
-		"newgrounds": "Your Mom",
-		"gameName": [
-			"Funkin",
-			"At",
-			"Freddy's"
 		],
 		"assoc": [
 			"Accurate Picture",
 			"Of"
 		],
-		"bpm": 99,
-		"present": "presents"
+		"gameName": [
+			"Funkin",
+			"At",
+			"Freddy's"
+		],
+		"present": "presents",
+		"bpm": 99
 	},
-	"description": "We Need 3",
+	"skinnableBFs": [],
 	"titleBarName": "Funkin' At Freddy's - VS. Afton Full Week",
-	"GFskins": [],
-	"downloadLinkAlt": null
+	"downloadLinkAlt": null,
+	"GFskins": []
 }
