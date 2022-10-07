@@ -1,5 +1,16 @@
 ratings = [
     {
+        name : "Party!!",
+        image : "Funkin' At Freddy's:weeb/pixelUI/sick-pixel",
+        accuracy : 1,
+        health : 0.10,
+        maxDiff : 50,
+        score : 350,
+        scale : 3,
+        color : "#24DEFF",
+        antialiasing : false                                                                                                                                                                     
+    },
+    {
         name : "Great",
         image : "Funkin' At Freddy's:weeb/pixelUI/good-pixel",
         accuracy : 2 / 3,
@@ -32,17 +43,6 @@ ratings = [
         color : "#804913",
         miss : true,
         antialiasing : false
-    },
-    {
-        name : "Party!!",
-        image : "Funkin' At Freddy's:weeb/pixelUI/sick-pixel",
-        accuracy : 1,
-        health : 0.10,
-        maxDiff : 50,
-        score : 350,
-        scale : 3,
-        color : "#24DEFF",
-        antialiasing : false                                                                                                                                                                     
     }
 ];
 
@@ -199,6 +199,28 @@ function onShowCombo(combo:Int, coolText:FlxText) {
 
 function stepHit(curStep:Int) {
     if(curStep == 1) {
-        blackScreen.alpha = 0.8;
+        blackScreen.alpha = 0.6;
+    }
+    if(curStep == 784) {
+        dadSecondCharacter.visible = true; 
+        dad.visible = false; 
+    }
+    if(curStep == 1551) {
+        dadSecondCharacter.animation.play('drop');
+    }
+    if(curStep >= 1552 && curStep <= 1617) {
+        dadSecondCharacter.animation.play('idle-alt');
+    }
+    if(curStep >= 1617 && curStep <= 1648) {
+        dadSecondCharacter.animation.play('idle-alt1');
+    }
+    if(curStep >= 1648 && curStep <= 1696) {
+        dadSecondCharacter.animation.play('idle-alt2');
+    }
+    if(curStep >= 1696) {
+        dadSecondCharacter.animation.play('idle-alt3');
+    }
+    if(curStep == 1712 || curStep == 1728 || curStep == 1744 || curStep == 1760 || curStep == 1776) {
+        boyfriend.alpha -= 0.2;
     }
 }
