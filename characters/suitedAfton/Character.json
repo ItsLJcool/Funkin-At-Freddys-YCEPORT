@@ -6,7 +6,7 @@
 	},
 	"globalOffset": {
 		"x": 70,
-		"y": 230
+		"y": 310
 	},
 	"healthbarColor": "#B28607",
 	"flipX": false,
@@ -22,15 +22,6 @@
 		},
 		{
 			"indices": null,
-			"x": -8,
-			"y": -5,
-			"anim": "Suited Afton right",
-			"loop": false,
-			"name": "singRIGHT",
-			"framerate": 24
-		},
-		{
-			"indices": null,
 			"x": 0,
 			"y": -5,
 			"anim": "Suited Afton down",
@@ -40,11 +31,11 @@
 		},
 		{
 			"indices": null,
-			"x": -51,
+			"x": -8,
 			"y": -5,
-			"anim": "Suited Afton up",
+			"anim": "Suited Afton right",
 			"loop": false,
-			"name": "singUP",
+			"name": "singRIGHT",
 			"framerate": 24
 		},
 		{
@@ -55,6 +46,15 @@
 			"loop": false,
 			"name": "singLEFT",
 			"framerate": 12
+		},
+		{
+			"indices": null,
+			"x": -51,
+			"y": -5,
+			"anim": "Suited Afton up",
+			"loop": false,
+			"name": "singUP",
+			"framerate": 24
 		}
 	],
 	"danceSteps": [
@@ -71,5 +71,5 @@
 			1
 		]
 	],
-	"scale": 2.55
+	"scale": 2.3
 }
