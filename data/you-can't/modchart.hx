@@ -52,6 +52,14 @@ var set:FlxSound = null;
 var go:FlxSound = null;
 
 function create() {
+    blood = new FlxSprite(100, 300);
+    blood.frames = Paths.getSparrowAtlas('stages/aftonKill/blood');
+    blood.animation.addByPrefix('blood', 'blood blood', 24, true);
+    blood.scale.set(4, 4);
+    blood.updateHitbox();
+    blood.visible = false;
+    PlayState.add(blood);
+
     dadSecondCharacter= new Character(450, 300, mod + ":" + "suitedAftonPanic");
     PlayState.dads.push(dadSecondCharacter);
     dadSecondCharacter.visible = false; 
@@ -99,7 +107,7 @@ function onCountdown(countdown:Int) {
             var ready:FlxSprite = new FlxSprite().loadGraphic(Paths.image("weeb/pixelUI/ready-pixel"));
             ready.scrollFactor.set();
             ready.updateHitbox();
-            ready.setGraphicSize(Std.int(ready.width * 3));
+            ready.setGraphicSize(Std.int(ready.width * 1));
             ready.screenCenter();
             PlayState.add(ready);
 
@@ -117,7 +125,7 @@ function onCountdown(countdown:Int) {
             var set:FlxSprite = new FlxSprite().loadGraphic(Paths.image("weeb/pixelUI/set-pixel"));
             set.scrollFactor.set();
             set.updateHitbox();
-            set.setGraphicSize(Std.int(set.width * 3));
+            set.setGraphicSize(Std.int(set.width * 1));
             set.screenCenter();
             PlayState.add(set);
 
@@ -134,7 +142,7 @@ function onCountdown(countdown:Int) {
             var date:FlxSprite = new FlxSprite().loadGraphic(Paths.image("weeb/pixelUI/date-pixel"));
             date.scrollFactor.set();
             date.updateHitbox();
-            date.setGraphicSize(Std.int(date.width * 3));
+            date.setGraphicSize(Std.int(date.width * 1));
             date.screenCenter();
             PlayState.add(date);
 
@@ -207,9 +215,14 @@ function stepHit(curStep:Int) {
     }
     if(curStep == 1551) {
         dadSecondCharacter.animation.play('drop');
+        blood.visible = true;
+        blood.animation.play('blood');
     }
     if(curStep >= 1552 && curStep <= 1617) {
         dadSecondCharacter.animation.play('idle-alt');
+    }
+    if(curStep == 1600) {
+        blood.visible = false;
     }
     if(curStep >= 1617 && curStep <= 1648) {
         dadSecondCharacter.animation.play('idle-alt1');

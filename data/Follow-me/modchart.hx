@@ -105,7 +105,7 @@ function onCountdown(countdown:Int) {
             var ready:FlxSprite = new FlxSprite().loadGraphic(Paths.image("weeb/pixelUI/ready-pixel"));
             ready.scrollFactor.set();
             ready.updateHitbox();
-            ready.setGraphicSize(Std.int(ready.width * 3));
+            ready.setGraphicSize(Std.int(ready.width * 1));
             ready.screenCenter();
             PlayState.add(ready);
 
@@ -123,7 +123,7 @@ function onCountdown(countdown:Int) {
             var set:FlxSprite = new FlxSprite().loadGraphic(Paths.image("weeb/pixelUI/set-pixel"));
             set.scrollFactor.set();
             set.updateHitbox();
-            set.setGraphicSize(Std.int(set.width * 3));
+            set.setGraphicSize(Std.int(set.width * 1));
             set.screenCenter();
             PlayState.add(set);
 
@@ -140,7 +140,7 @@ function onCountdown(countdown:Int) {
             var date:FlxSprite = new FlxSprite().loadGraphic(Paths.image("weeb/pixelUI/date-pixel"));
             date.scrollFactor.set();
             date.updateHitbox();
-            date.setGraphicSize(Std.int(date.width * 3));
+            date.setGraphicSize(Std.int(date.width * 1));
             date.screenCenter();
             PlayState.add(date);
 
@@ -208,51 +208,33 @@ function stepHit(curStep:Int) {
         blackScreen1.visible = false;
     }
     if(curStep == 960) {
-        blackScreen2.alpha = 0.2;
-    }
-    if(curStep == 964) {
-        blackScreen2.alpha = 0.25;
-    }
-    if(curStep == 968) {
-        blackScreen2.alpha = 0.3;
-    }
-    if(curStep == 972) {
-        blackScreen2.alpha = 0.35;
-    }
-    if(curStep == 976) {
-        blackScreen2.alpha = 0.4;
-    }
-    if(curStep == 980) {
-        blackScreen2.alpha = 0.45;
-    }
-    if(curStep == 984) {
-        blackScreen2.alpha = 0.5;
-    }
-    if(curStep == 988) {
         blackScreen2.alpha = 0.55;
     }
-    if(curStep == 992) {
+    if(curStep == 964) {
         blackScreen2.alpha = 0.6;
     }
-    if(curStep == 996) {
+    if(curStep == 968) {
         blackScreen2.alpha = 0.65;
     }
-    if(curStep == 1000) {
+    if(curStep == 972) {
         blackScreen2.alpha = 0.7;
     }
-    if(curStep == 1004) {
+    if(curStep == 976) {
         blackScreen2.alpha = 0.75;
     }
-    if(curStep == 1008) {
+    if(curStep == 980) {
         blackScreen2.alpha = 0.8;
     }
-    if(curStep == 1012) {
+    if(curStep == 984) {
         blackScreen2.alpha = 0.85;
     }
-    if(curStep == 1016) {
+    if(curStep == 988) {
         blackScreen2.alpha = 0.9;
     }
-    if(curStep == 1020) {
+    if(curStep == 992) {
+        blackScreen2.alpha = 0.95;
+    }
+    if(curStep == 996) {
         blackScreen2.alpha = 1;
     }
     if(curStep == 1024) {
