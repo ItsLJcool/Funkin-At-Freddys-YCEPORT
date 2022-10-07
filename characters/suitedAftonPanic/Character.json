@@ -1,0 +1,132 @@
+{
+	"arrowColors": null,
+	"camOffset": {
+		"x": 0,
+		"y": 0
+	},
+	"globalOffset": {
+		"x": 50,
+		"y": 210
+	},
+	"healthbarColor": "#B28607",
+	"flipX": false,
+	"anims": [
+		{
+			"indices": null,
+			"x": -22,
+			"y": -10,
+			"anim": "suited afton panic death one",
+			"loop": false,
+			"name": "idle-alt",
+			"framerate": 6
+		},
+		{
+			"indices": null,
+			"x": -16,
+			"y": 6,
+			"anim": "suited afton panic death two",
+			"loop": false,
+			"name": "idle-alt1",
+			"framerate": 6
+		},
+		{
+			"indices": null,
+			"x": 30,
+			"y": -15,
+			"anim": "suited afton panic down",
+			"loop": false,
+			"name": "singDOWN",
+			"framerate": 24
+		},
+		{
+			"indices": null,
+			"x": 0,
+			"y": 0,
+			"anim": "suited afton panic death three",
+			"loop": false,
+			"name": "idle-alt2",
+			"framerate": 6
+		},
+		{
+			"indices": null,
+			"x": -39,
+			"y": -12,
+			"anim": "suited afton panic up",
+			"loop": false,
+			"name": "singUP",
+			"framerate": 12
+		},
+		{
+			"indices": null,
+			"x": 0,
+			"y": 0,
+			"anim": "suited afton panic death four",
+			"loop": false,
+			"name": "idle-alt3",
+			"framerate": 6
+		},
+		{
+			"indices": [
+				4,
+				5
+			],
+			"x": 0,
+			"y": -10,
+			"anim": "suited afton panic uh oh",
+			"loop": false,
+			"name": "idle",
+			"framerate": 2
+		},
+		{
+			"indices": null,
+			"x": -40,
+			"y": -10,
+			"anim": "suited afton panic right",
+			"loop": false,
+			"name": "singRIGHT",
+			"framerate": 24
+		},
+		{
+			"indices": null,
+			"x": 5,
+			"y": -10,
+			"anim": "suited afton panic left",
+			"loop": false,
+			"name": "singLEFT",
+			"framerate": 24
+		},
+		{
+			"indices": null,
+			"x": 0,
+			"y": -11,
+			"anim": "suited afton panic uh oh",
+			"loop": false,
+			"name": "uh no",
+			"framerate": 2
+		},
+		{
+			"indices": null,
+			"x": -3,
+			"y": -11,
+			"anim": "suited afton panic drop",
+			"loop": false,
+			"name": "drop",
+			"framerate": 6
+		}
+	],
+	"danceSteps": [
+		"idle"
+	],
+	"antialiasing": false,
+	"healthIconSteps": [
+		[
+			20,
+			0
+		],
+		[
+			0,
+			1
+		]
+	],
+	"scale": 2.55
+}
