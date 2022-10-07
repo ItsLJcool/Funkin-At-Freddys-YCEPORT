@@ -1,9 +1,58 @@
+ratings = [
+    {
+        name : "Great",
+        image : "Funkin' At Freddy's:weeb/pixelUI/good-pixel",
+        accuracy : 2 / 3,
+        health : 0.06,
+        maxDiff : 100,
+        score : 200,
+        scale : 3,
+        color : "#3FD200",
+        antialiasing : false
+    },
+    {
+        name : "Good",
+        image : "Funkin' At Freddy's:weeb/pixelUI/bad-pixel",
+        accuracy : 1 / 3,
+        health : 0.0,
+        maxDiff : 150,
+        score : 50,
+        scale : 3,
+        color : "#D70000",
+        antialiasing : false
+    },
+    {
+        name : "Terrible",
+        image : "Funkin' At Freddy's:weeb/pixelUI/shit-pixel",
+        accuracy : 1 / 6,
+        health : 0.0,
+        maxDiff : 1000,
+        score : -150,
+        scale : 3,
+        color : "#804913",
+        miss : true,
+        antialiasing : false
+    },
+    {
+        name : "Party!!",
+        image : "Funkin' At Freddy's:weeb/pixelUI/sick-pixel",
+        accuracy : 1,
+        health : 0.10,
+        maxDiff : 50,
+        score : 350,
+        scale : 3,
+        color : "#24DEFF",
+        antialiasing : false                                                                                                                                                                     
+    }
+];
+
 var three:FlxSound = null;
 var ready:FlxSound = null;
 var set:FlxSound = null;
 var go:FlxSound = null;
 
 function create() {
+    // defaultCamZoom = 0.3;
     bars = new FlxSprite(-30, -100).loadGraphic(Paths.image('stages/ac'));
     bars.antialiasing = EngineSettings.antialiasing;
     bars.scale.set(1, 1);
@@ -15,6 +64,16 @@ function create() {
     ready = Paths.sound("intro2-pixel");
     set = Paths.sound("intro1-pixel");
     date = Paths.sound("introGo-pixel");  
+
+    kids = new FlxSprite(-200,0);
+    kids.frames = Paths.getSparrowAtlas('stages/aftonParty/front');
+    kids.animation.addByPrefix('kids', 'front kids', 24, true);
+    kids.animation.play('kids');
+    kids.antialiasing = EngineSettings.antialiasing;
+    kids.scale.set(2.5,2);    
+    kids.updateHitbox();
+    kids.screenCenter();
+    PlayState.add(kids);
 }
 
 function update() {
@@ -123,11 +182,11 @@ function onShowCombo(combo:Int, coolText:FlxText) {
     {
         var numScore:FlxSprite = new FlxSprite().loadGraphic(Paths.image('weeb/pixelUI/num' + Std.int(i) + '-pixel'));
         numScore.screenCenter();
-        numScore.x = coolText.x + (43 * daLoop) - 90;
+        numScore.x = coolText.x + (68 * daLoop) - 90;
         numScore.y += 80;
 
         
-        numScore.scale.set(3, 3);
+        numScore.scale.set(2, 2);
         numScore.updateHitbox();
 
         numScore.acceleration.y = FlxG.random.int(200, 300);
