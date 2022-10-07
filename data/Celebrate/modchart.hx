@@ -1,5 +1,16 @@
 ratings = [
     {
+        name : "Party!!",
+        image : "Funkin' At Freddy's:weeb/pixelUI/sick-pixel",
+        accuracy : 1,
+        health : 0.10,
+        maxDiff : 50,
+        score : 350,
+        scale : 3,
+        color : "#24DEFF",
+        antialiasing : false                                                                                                                                                                     
+    },
+    {
         name : "Great",
         image : "Funkin' At Freddy's:weeb/pixelUI/good-pixel",
         accuracy : 2 / 3,
@@ -32,17 +43,6 @@ ratings = [
         color : "#804913",
         miss : true,
         antialiasing : false
-    },
-    {
-        name : "Party!!",
-        image : "Funkin' At Freddy's:weeb/pixelUI/sick-pixel",
-        accuracy : 1,
-        health : 0.10,
-        maxDiff : 50,
-        score : 350,
-        scale : 3,
-        color : "#24DEFF",
-        antialiasing : false                                                                                                                                                                     
     }
 ];
 
