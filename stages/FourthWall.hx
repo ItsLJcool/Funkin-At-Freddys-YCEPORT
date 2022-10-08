@@ -108,9 +108,9 @@ function beatHit(curBeat) {
 	switch(curBeat) {
 		case 45, 173, 400:
 			lightningTimer = 100;
-		case 48, 192, 200, 216, 312:
+		case 48, 184, 200, 216, 312, 328, 344:
 			lightningTimer = 1;
-		case 135, 184, 208, 240, 367:
+		case 135, 176, 192, 208, 240, 304, 320, 336, 360:
 			lightningTimer = 2;
 	}
 }
@@ -147,8 +147,6 @@ var lightgrad5:FlxSprite;
 var lightgrad6:FlxSprite;
 var lightgrad7:FlxSprite;
 function doNewCreateLOL() {
-
-	EngineSettings.botplay = true;
 
 	// for (i in 0...6) {
 	// 		//first time using emitters sorry if i broke an unspeakable rule or something YES ziffy you did you idiot
