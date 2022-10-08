@@ -119,6 +119,8 @@ function stepHit(curStep) {
         gt.animation.play('shinestat');
         defaultCamZoom = 1.2;
         gt.scrollFactor.set(0.7,0.7);
+        defaultCamZoom = 0.9;
+        PlayState.camHUD.zoom += 2;
     }
     if(curStep == 576) {
         whiteScreen.alpha = 1;
@@ -131,7 +133,6 @@ function stepHit(curStep) {
         boyfriend.visible = true;
         bfSecondCharacter.visible = false; 
         dadSecondCharacter.visible = false; 
-        defaultCamZoom = 0.9;
     }
     if(curStep == 960) {
         greenscreen.alpha = 1;
