@@ -1,5 +1,10 @@
 {
-	"arrowColors": null,
+	"arrowColors": [
+		"#FAFAFF",
+		"#626464",
+		"#313030",
+		"#FDFCFC"
+	],
 	"camOffset": {
 		"x": 0,
 		"y": 0
@@ -15,18 +20,18 @@
 			"indices": null,
 			"x": 0,
 			"y": 0,
-			"anim": "MissRight",
+			"anim": "Down",
 			"loop": false,
-			"name": "singRIGHTmiss",
+			"name": "singDOWN",
 			"framerate": 24
 		},
 		{
 			"indices": null,
 			"x": 0,
 			"y": 0,
-			"anim": "Down",
+			"anim": "MissRight",
 			"loop": false,
-			"name": "singDOWN",
+			"name": "singRIGHTmiss",
 			"framerate": 24
 		},
 		{
@@ -78,18 +83,18 @@
 			"indices": null,
 			"x": 0,
 			"y": 0,
-			"anim": "Left",
+			"anim": "MissUp",
 			"loop": false,
-			"name": "singLEFT",
+			"name": "singUPmiss",
 			"framerate": 24
 		},
 		{
 			"indices": null,
 			"x": 0,
 			"y": 0,
-			"anim": "MissUp",
+			"anim": "Left",
 			"loop": false,
-			"name": "singUPmiss",
+			"name": "singLEFT",
 			"framerate": 24
 		}
 	],

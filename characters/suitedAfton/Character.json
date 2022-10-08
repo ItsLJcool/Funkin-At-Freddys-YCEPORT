@@ -1,12 +1,17 @@
 {
-	"arrowColors": null,
+	"arrowColors": [
+		"#BD990A",
+		"#BC6AC8",
+		"#BD65C3",
+		"#BF8E03"
+	],
 	"camOffset": {
 		"x": 0,
 		"y": 0
 	},
 	"globalOffset": {
 		"x": 70,
-		"y": 310
+		"y": 300
 	},
 	"healthbarColor": "#B28607",
 	"flipX": false,
@@ -22,16 +27,7 @@
 		},
 		{
 			"indices": null,
-			"x": 0,
-			"y": -5,
-			"anim": "Suited Afton down",
-			"loop": false,
-			"name": "singDOWN",
-			"framerate": 24
-		},
-		{
-			"indices": null,
-			"x": -8,
+			"x": -4,
 			"y": -5,
 			"anim": "Suited Afton right",
 			"loop": false,
@@ -40,12 +36,12 @@
 		},
 		{
 			"indices": null,
-			"x": 10,
-			"y": -3,
-			"anim": "Suited Afton left",
+			"x": -13,
+			"y": -4,
+			"anim": "Suited Afton down",
 			"loop": false,
-			"name": "singLEFT",
-			"framerate": 12
+			"name": "singDOWN",
+			"framerate": 24
 		},
 		{
 			"indices": null,
@@ -55,6 +51,15 @@
 			"loop": false,
 			"name": "singUP",
 			"framerate": 24
+		},
+		{
+			"indices": null,
+			"x": 9,
+			"y": -2,
+			"anim": "Suited Afton left",
+			"loop": false,
+			"name": "singLEFT",
+			"framerate": 12
 		}
 	],
 	"danceSteps": [
