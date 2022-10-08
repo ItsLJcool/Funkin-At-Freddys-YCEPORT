@@ -61,6 +61,12 @@ function createPost() {
 	}
     
     changeItem(0);
+    
+    logo = new FlxSprite(100,-320).loadGraphic(Paths.image('thelogo'));
+    logo.scale.set(0.3,0.3);
+    logo.updateHitbox();
+    arrowMenu.antialiasing = EngineSettings.antialiasing;
+    add(logo);
 }
 
 function update(elapsed:Float) {

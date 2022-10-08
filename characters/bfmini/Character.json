@@ -13,16 +13,7 @@
 	"anims": [
 		{
 			"indices": null,
-			"x": 0,
-			"y": 0,
-			"anim": "BF NOTE RIGHT MISS",
-			"loop": false,
-			"name": "singRIGHTmiss",
-			"framerate": 12
-		},
-		{
-			"indices": null,
-			"x": 0,
+			"x": 15,
 			"y": 0,
 			"anim": "BF NOTE DOWN HIT",
 			"loop": false,
@@ -31,7 +22,16 @@
 		},
 		{
 			"indices": null,
-			"x": 0,
+			"x": 20,
+			"y": 0,
+			"anim": "BF NOTE RIGHT MISS",
+			"loop": false,
+			"name": "singRIGHTmiss",
+			"framerate": 12
+		},
+		{
+			"indices": null,
+			"x": -5,
 			"y": 0,
 			"anim": "BF NOTE LEFT MISS",
 			"loop": false,
@@ -58,7 +58,7 @@
 		},
 		{
 			"indices": null,
-			"x": 0,
+			"x": 13,
 			"y": 0,
 			"anim": "BF NOTE DOWN MISS",
 			"loop": false,
@@ -67,7 +67,7 @@
 		},
 		{
 			"indices": null,
-			"x": 0,
+			"x": 20,
 			"y": 0,
 			"anim": "BF NOTE RIGHT HIT",
 			"loop": false,
@@ -78,18 +78,18 @@
 			"indices": null,
 			"x": 0,
 			"y": 0,
-			"anim": "BF NOTE LEFT HIT",
+			"anim": "BF NOTE UP MISS",
 			"loop": false,
-			"name": "singLEFT",
+			"name": "singUPmiss",
 			"framerate": 12
 		},
 		{
 			"indices": null,
-			"x": 0,
+			"x": -4,
 			"y": 0,
-			"anim": "BF NOTE UP MISS",
+			"anim": "BF NOTE LEFT HIT",
 			"loop": false,
-			"name": "singUPmiss",
+			"name": "singLEFT",
 			"framerate": 12
 		}
 	],
