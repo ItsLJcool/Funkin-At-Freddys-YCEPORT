@@ -6,7 +6,7 @@ var moveCam = 20;
 var songName = PlayState.song.song.toLowerCase();
 function create() {
     switch(songName) {
-      case "just-a-theory", "salvage":
+      case "just-a-theory", "salvage", "nightmare":
         moveCam = 20;
       case "fourth-wall":
         moveCam = 100;
