@@ -67,7 +67,7 @@ function update(elapsed:Float) {
 
     if (!selectedSomethin) {
         if (controlsJust.S)
-            FlxG.switchState(new StoryMainMenu());
+            FlxG.switchState(new StoryMenuState());
             
         if (controlsJustNUM([87,38])) {
             CoolUtil.playMenuSFX(0);
