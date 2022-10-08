@@ -31,7 +31,7 @@
 				"Hard"
 			],
 			"displayName": null,
-			"char": "afton-night",
+			"char": "aftonNight",
 			"bpm": 160,
 			"name": "midnight",
 			"color": "#9F4AC4"
@@ -89,12 +89,12 @@
 			"bpm": 180
 		},
 		{
-			"bpm": 120,
 			"difficulties": [
 				"Hard"
 			],
 			"displayName": "Fourth Wall",
 			"char": "ScottMan",
+			"bpm": 120,
 			"name": "fourth-wall",
 			"color": "#FFFFFF"
 		}

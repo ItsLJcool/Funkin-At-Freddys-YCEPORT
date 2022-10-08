@@ -12,7 +12,7 @@ function create() {
     for (song in songMoveCams) {
       if (song == songName)
         switch(song) {
-          case "just-a-theory":
+          case "just-a-theory", "salvage":
             moveCam = 20;
           case "fourth-wall":
             moveCam = 100;
