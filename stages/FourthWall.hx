@@ -57,10 +57,6 @@ function playAnimation(character:String, anim:String) {
 	}
 }
 
-function stepHit(curStep) {
-	// trace(lightningTimer);
-}
-
 var lightTween:FlxTween;
 function beatHit(curBeat) {
 	stage.onBeat();

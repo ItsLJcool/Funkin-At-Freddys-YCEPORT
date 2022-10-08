@@ -2,6 +2,7 @@
 import flixel.effects.FlxFlicker;
 import PlayState;
 import CoolUtil;
+import flixel.input.mouse.FlxMouseEventManager;
 
 // keys cool
 var controls = FlxG.keys.pressed;
@@ -14,6 +15,9 @@ var menuCurSelected:Int = 0;
 var optionShit:Array<String> = ['afton', 'extras', 'options', 'credits'];
 
 var menuItems:Array<FlxSprite> = [];
+
+var arrowMenu:FlxSprite;
+var difficultyMenu:FlxSprite;
 function create() {
 }
 
@@ -42,11 +46,76 @@ function createPost() {
     add(monitor);
 
     arrowMenu = new FlxSprite().loadGraphic(Paths.image('mainmenu/menu_afton_arrow'));
-    arrowMenu.scrollFactor.set(0, 0);
+    arrowMenu.scrollFactor.set();
     arrowMenu.setGraphicSize(Std.int(arrowMenu.width * 0.6));
     arrowMenu.updateHitbox();
     arrowMenu.antialiasing = EngineSettings.antialiasing;
     add(arrowMenu);
+
+    var aftonDifficulty:FlxSprite = new FlxSprite(325,450).loadGraphic(Paths.image('mainmenu/menu_afton_difficulty'));
+    aftonDifficulty.setGraphicSize(Std.int(aftonDifficulty.width * 0.6));
+    aftonDifficulty.scrollFactor.set();
+    aftonDifficulty.updateHitbox();
+    add(aftonDifficulty);
+
+    difficultyMenu = new FlxSprite(aftonDifficulty.x, aftonDifficulty.y + 60);
+    difficultyMenu.frames = Paths.getSparrowAtlas('mainmenu/afton_menu_diff');
+    difficultyMenu.animation.addByPrefix('easy', "afton_menu_diff easy", 1);
+    difficultyMenu.animation.addByPrefix('normal', "afton_menu_diff normal", 1);
+    difficultyMenu.animation.addByPrefix('hard', "afton_menu_diff hard", 1);
+    difficultyMenu.animation.play('hard');
+    difficultyMenu.setGraphicSize(Std.int(difficultyMenu.width * 0.6));
+    difficultyMenu.updateHitbox();
+    difficultyMenu.scrollFactor.set();
+    add(difficultyMenu);
+
+    var aftonSystem:FlxSprite = new FlxSprite(monitor.x - 523, monitor.y - 55).loadGraphic(Paths.image('mainmenu/menu_afton_system'));
+    aftonSystem.setGraphicSize(Std.int(aftonSystem.width * 0.6));
+    add(aftonSystem);
+
+    var gtLogo:FlxSprite = new FlxSprite(120, -450).loadGraphic(Paths.image('mainmenu/portrait/Character_Portrait_GT_Logo'));
+    gtLogo.setGraphicSize(Std.int(gtLogo.width * 0.4));
+    // gtLogo.visible = FlxG.save.data.matpatUnlocked;
+    gtLogo.antialiasing = true;
+    gtLogo.scrollFactor.set();
+    add(gtLogo);
+
+    var shadowPortrait:FlxSprite = new FlxSprite(120, -450).loadGraphic(Paths.image('mainmenu/portrait/Character_Portrait_Shadow_Bonnie'));
+    shadowPortrait.setGraphicSize(Std.int(shadowPortrait.width * 0.4));
+    // shadowPortrait.visible = FlxG.save.data.shadowBonnieUnlocked;
+    shadowPortrait.antialiasing = true;
+    shadowPortrait.scrollFactor.set();
+    add(shadowPortrait);
+
+    var springPortrait:FlxSprite = new FlxSprite(120, -450).loadGraphic(Paths.image('mainmenu/portrait/Character_Portrait_Spring_Bonnie'));
+    springPortrait.setGraphicSize(Std.int(springPortrait.width * 0.4));
+    // springPortrait.visible = FlxG.save.data.salvageBeaten;
+    springPortrait.antialiasing = true;
+    springPortrait.scrollFactor.set();
+    add(springPortrait);
+
+    var springtrapPortrait:FlxSprite = new FlxSprite(120, -450).loadGraphic(Paths.image('mainmenu/portrait/Character_Portrait_Springtrap'));
+    springtrapPortrait.setGraphicSize(Std.int(springtrapPortrait.width * 0.4));
+    // springtrapPortrait.visible = FlxG.save.data.nightmareBeaten;
+    springtrapPortrait.antialiasing = true;
+    springtrapPortrait.scrollFactor.set();
+    add(springtrapPortrait);
+
+    var aftonPortrait:FlxSprite = new FlxSprite(120, -450).loadGraphic(Paths.image('mainmenu/portrait/Character_Portrait_Afton'));
+    aftonPortrait.setGraphicSize(Std.int(aftonPortrait.width * 0.4));
+    aftonPortrait.visible = true;
+    aftonPortrait.antialiasing = true;
+    aftonPortrait.scrollFactor.set();
+    add(aftonPortrait);
+
+    FlxMouseEventManager.add(aftonPortrait, function onMouseDown(aftonPortrait:FlxSprite){fazbarsPlay();}, null);
+
+    var scottPortrait:FlxSprite = new FlxSprite(120, -450).loadGraphic(Paths.image('mainmenu/portrait/Character_Portrait_Scott'));
+    scottPortrait.setGraphicSize(Std.int(scottPortrait.width * 0.4));
+    // scottPortrait.visible = FlxG.save.data.scottBeaten;
+    scottPortrait.antialiasing = true;
+    scottPortrait.scrollFactor.set();
+    add(scottPortrait);
 
     for (i in 0...optionShit.length) {
 		var offsetY:Float = 400 - (Math.max(optionShit.length, 4) - 4) * 80;
@@ -67,12 +136,13 @@ function createPost() {
 	add(logo);
     
     changeItem(0);
+    changeDiff(0);
 }
 
 function update(elapsed:Float) {
 
     if (!selectedSomethin) {
-        if (controlsJust.S)
+        if (controlsJust.R)
             FlxG.switchState(new StoryMenuState());
             
         if (controlsJustNUM([87,38])) {
@@ -83,10 +153,10 @@ function update(elapsed:Float) {
             CoolUtil.playMenuSFX(0);
             changeItem(1); }
 
-        if (controls.UI_LEFT_P)
+        if (controlsJustNUM([37,65]))
             changeDiff(-1);
 
-        if (controls.UI_RIGHT_P)
+        if (controlsJustNUM([39,68]))
             changeDiff(1);
 
         if (controlsJustNUM([13])) {
@@ -124,6 +194,9 @@ function update(elapsed:Float) {
 function playSongs() {
     // CoolUtil.loadSong(mod, "burning-in-hell", "hard");
     // LoadingState.loadAndSwitchState(new PlayState_());
+    selectedSomethin = false;
+    trace("not working rn");
+    arrowMenu.alpha = 1;
 }
 
 function changeItem(huh:Int = 0) {
@@ -155,5 +228,33 @@ function changeItem(huh:Int = 0) {
 					arrowMenu.y = spr.y - 5;	
 			}
 		};	
+	}
+}
+var curDifficulty:Int = 0;
+function changeDiff(huh:Int = 0) {
+    curDifficulty += huh;
+
+    if (curDifficulty >= 3)
+        curDifficulty = 0;
+    if (curDifficulty < 0)
+        curDifficulty = 2;
+
+    var difficArray:Array<String> = ['easy','normal','hard'];
+
+    difficultyMenu.animation.play(difficArray[curDifficulty]);
+    switch (curDifficulty)
+    {
+        case 1:
+            difficultyMenu.x = 300;
+        default:
+            difficultyMenu.x = 325;
+    }
+}
+
+function fazbarsPlay() {
+	fazbarsCounter += 1;
+	if(fazbarsCounter == 1987 && !fazbarsBeaten){
+        // CoolUtil.loadSong(mod, "burning-in-hell", "hard");
+        trace("IS THAT THE BITE OF '87??");
 	}
 }
