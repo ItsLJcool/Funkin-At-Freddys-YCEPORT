@@ -1,4 +1,5 @@
 //a
+import Rating;
 var songName = PlayState.song.song.toLowerCase();
 var pixelatedYES:Bool = false;
 var blackScreen1:FlxSprite;
@@ -8,6 +9,17 @@ function create() {
     switch(songName) {
       case "celebrate", "follow-me", "midnight", "you-can't":
         ratings = [
+        {
+            name : "Party!!",
+            image : "Funkin' At Freddy's:weeb/pixelUI/sick-pixel",
+            accuracy : 1,
+            health : 0.10,
+            maxDiff : 50,
+            score : 350,
+            scale : 3,
+            color : "#24DEFF",
+            antialiasing : false                                                                                                                                                                     
+        },
         {
             name : "Great",
             image : "Funkin' At Freddy's:weeb/pixelUI/good-pixel",
@@ -41,27 +53,18 @@ function create() {
             color : "#804913",
             miss : true,
             antialiasing : false
-        },
-        {
-            name : "Party!!",
-            image : "Funkin' At Freddy's:weeb/pixelUI/sick-pixel",
-            accuracy : 1,
-            health : 0.10,
-            maxDiff : 50,
-            score : 350,
-            scale : 3,
-            color : "#24DEFF",
-            antialiasing : false                                                                                                                                                                     
         }
     ];
         pixelatedYES = true;
 
-        bars = new FlxSprite(-30, -100).loadGraphic(Paths.image('stages/ac'));
-        bars.antialiasing = EngineSettings.antialiasing;
-        bars.scale.set(1, 1);
-        bars.cameras = [PlayState.camHUD];
-        bars.updateHitbox();
-        PlayState.add(bars);
+        arcadeoverlay = new FlxSprite(0, 0).loadGraphic(Paths.image('stages/ac'));
+        arcadeoverlay.antialiasing = false;
+        arcadeoverlay.setGraphicSize(Std.int(arcadeoverlay.width * 1));
+        arcadeoverlay.updateHitbox();
+        arcadeoverlay.screenCenter();
+        arcadeoverlay.y -= 30;
+        PlayState.add(arcadeoverlay);
+        arcadeoverlay.cameras = [PlayState.camHUD];
 
         three = Paths.sound("intro3-pixel");
         ready = Paths.sound("intro2-pixel");
@@ -154,12 +157,9 @@ function musicstart() {
         blackScreen1.visible = false;
     }
 }
-function onShowCombo(combo:Int, coolText:FlxText) {
+var lastRating:Rating = null;
+function onShowCombo(combo:Int, coolText:FlxPoint) {
     if (pixelatedYES) {
-    
-        if (!(combo >= 10 || combo == 0))
-            return;
-
         var seperatedScore:Array<Int> = [];
 
         var stringCombo = Std.string(combo);
@@ -167,25 +167,18 @@ function onShowCombo(combo:Int, coolText:FlxText) {
             seperatedScore.push(Std.parseInt(stringCombo.charAt(i)));
         }
 
+        coolText.x = -99999999;
         while(seperatedScore.length < 3) seperatedScore.insert(0, 0);
 
-
         var daLoop:Int = 0;
-        for (i in seperatedScore)
-        {
+        for (i in seperatedScore) {
             var numScore:FlxSprite = new FlxSprite().loadGraphic(Paths.image('weeb/pixelUI/num' + Std.int(i) + '-pixel'));
-            numScore.screenCenter();
-            numScore.x = coolText.x + (68 * daLoop) - 90;
-            numScore.y += 80;
+            numScore.screenCenter(FlxAxes.X);
+            numScore.x += -49 + (10 + numScore.width) * daLoop;
+            numScore.y = 100;
+            numScore.cameras = [PlayState.camHUD];
 
-
-            numScore.scale.set(2, 2);
             numScore.updateHitbox();
-
-            numScore.acceleration.y = FlxG.random.int(200, 300);
-            numScore.velocity.y -= FlxG.random.int(140, 160);
-            numScore.velocity.x = FlxG.random.float(-5, 5);
-
             PlayState.add(numScore);
 
             FlxTween.tween(numScore, {alpha: 0}, 0.2, {
@@ -198,7 +191,5 @@ function onShowCombo(combo:Int, coolText:FlxText) {
 
             daLoop++;
         }
-
-        return false;
     }
 }   

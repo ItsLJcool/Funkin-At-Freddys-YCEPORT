@@ -69,8 +69,9 @@ function createPost() {
     difficultyMenu.scrollFactor.set();
     add(difficultyMenu);
 
-    var aftonSystem:FlxSprite = new FlxSprite(monitor.x - 523, monitor.y - 55).loadGraphic(Paths.image('mainmenu/menu_afton_system'));
+    var aftonSystem:FlxSprite = new FlxSprite(monitor.x + 117, monitor.y + 305).loadGraphic(Paths.image('mainmenu/menu_afton_system'));
     aftonSystem.setGraphicSize(Std.int(aftonSystem.width * 0.6));
+    aftonSystem.scrollFactor.set();
     add(aftonSystem);
 
     var gtLogo:FlxSprite = new FlxSprite(120, -450).loadGraphic(Paths.image('mainmenu/portrait/Character_Portrait_GT_Logo'));
@@ -136,7 +137,7 @@ function createPost() {
 	add(logo);
     
     changeItem(0);
-    changeDiff(0);
+    changeDiff(2);
 }
 
 function update(elapsed:Float) {
@@ -175,8 +176,7 @@ function update(elapsed:Float) {
                             case 'credits':
                                 FlxG.switchState(new CreditsState());
                             case 'options':
-                                FlxG.switchState(new options.screens.OptionMain());
-                                    
+                                FlxG.switchState(new options.screens.OptionMain()); 
                         }
                     });
                 }

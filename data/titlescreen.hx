@@ -41,3 +41,7 @@ function aftonGlitch() {
 		});
 	});
 }
+function textShit(beat:Int) {// prevent default behaviour
+    skipIntro();
+    return false;
+}
