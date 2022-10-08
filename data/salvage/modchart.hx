@@ -9,100 +9,123 @@ function onCountdown(countdown:Int) {
 }
 
 function onGenerateStaticArrows() {
-    blackScreen = new FlxSprite(-1000, -400).makeGraphic(Std.int(FlxG.width * 5), Std.int(FlxG.height * 5), 0xFF000000);
-    blackScreen.alpha = 1;
-    blackScreen.cameras = [PlayState.camHUD];
-    PlayState.add(blackScreen);
-
-    night = new FlxSprite(0, 0).loadGraphic(Paths.image("stages/fright/5thNight"));
-    night.updateHitbox();
-    night.screenCenter();
-    night.setGraphicSize(Std.int(night.width * 1));
-    night.cameras = [PlayState.camHUD];
-    night.alpha = 0;
-    PlayState.add(night);
-
-    puppet = new FlxSprite(0, 0);
-    if(EngineSettings.downscroll && EngineSettings.middleScroll) {
-        puppet.x = 330;
-        puppet.y = 570;
-        puppet.flipY = true;
-    } else if(EngineSettings.downscroll && !EngineSettings.middleScroll) {
-        puppet.x = 650;
-        puppet.y = 570;
-        puppet.flipY = true;
-    } else if(!EngineSettings.downscroll && !EngineSettings.middleScroll) {
-        puppet.x = 650;
-        puppet.y = -200;
-    } else if(!EngineSettings.downscroll && EngineSettings.middleScroll) {
-        puppet.x = 330;
-        puppet.y = -200;
-    }
+    puppet = new FlxSprite(0, -400);
     puppet.frames = Paths.getSparrowAtlas('stages/fright/phantom_poopet');
-    puppet.animation.addByPrefix('poopet', 'phantom_poopet appear', 24, true);
-    puppet.updateHitbox();
-    puppet.scale.set(1,1);
-    puppet.cameras = [PlayState.camHUD];
+    puppet.animation.addByPrefix('scare', "phantom_poopet appear", 24);
+    puppet.setGraphicSize(Std.int(puppet.width * 1.5));
+    puppet.animation.play('scare');
+    puppet.antialiasing = EngineSettings.antialiasing;
+    puppet.cameras = [camHUD];
     add(puppet);
 
-    glitch = new FlxSprite(-2000, 1000);
-    glitch.frames = Paths.getSparrowAtlas('stages/fright/newNightGlitch');
-    glitch.animation.addByPrefix('glitch', 'newNightGlitch glitch', 24, true);
-    glitch.updateHitbox();
-    glitch.screenCenter();
-    glitch.scale.set(1,1);
-    glitch.cameras = [PlayState.camHUD];
-    glitch.alpha = 0;
-    add(glitch);
+    if(EngineSettings.middleScroll == true){
+        puppet.screenCenter(FlxAxes.X);
+    }
+    if(EngineSettings.downscroll == true){
+        puppet.flipY = true;
+        puppet.y = 600;
+    }
+
+    chica = new FlxSprite(0, 0);
+    chica.frames = Paths.getSparrowAtlas('stages/fright/phantom_chica');
+    chica.animation.addByPrefix('scare', "phantom_chica scare", 16);
+    chica.alpha = 0;
+    chica.antialiasing = EngineSettings.antialiasing;
+    chica.cameras = [camHUD];
+    add(chica);
+
+    bb = new FlxSprite(0, 0);
+    bb.frames = Paths.getSparrowAtlas('stages/fright/phantom_bb');
+    bb.animation.addByPrefix('scare', "phantom_bb idle", 20);
+    bb.animation.addByPrefix('empty', "phantom_bb empty", 20);
+    bb.alpha = 0;
+    bb.antialiasing = true;
+    bb.cameras = [camHUD];
+    add(bb);
+
+
+    
+    salvageBlack = new FlxSprite(-600, -400).makeGraphic(Std.int(FlxG.width * 5), Std.int(FlxG.height * 5), 0xFF000000);
+    salvageBlack.alpha = 0;
+    salvageBlack.cameras = [camHUD];
+    salvageBlack.screenCenter();
+    add(salvageBlack);
+
+    glitchSixAM = new FlxSprite(0, 0);
+    glitchSixAM.frames = Paths.getSparrowAtlas('stages/fright/nightBeatGlitch');
+    glitchSixAM.animation.addByPrefix('glitch', "glitch", 12);
+    glitchSixAM.alpha = 0;
+    glitchSixAM.antialiasing = false;
+    glitchSixAM.screenCenter(FlxAxes.X);
+    glitchSixAM.setGraphicSize(Std.int(glitchSixAM.width * 2));
+    glitchSixAM.animation.play('glitch');
+    glitchSixAM.cameras = [camHUD];
+    add(glitchSixAM);
+
+    sixAM = new FlxSprite(0, 0);
+    sixAM.frames = Paths.getSparrowAtlas('stages/fright/6am');
+    sixAM.animation.addByPrefix('static', "6am static", 24);
+    sixAM.animation.addByPrefix('chime', "6am chime", 24);
+    sixAM.alpha = 0;
+    sixAM.antialiasing = EngineSettings.antialiasing;
+    sixAM.screenCenter();
+    sixAM.cameras = [camHUD];
+    add(sixAM);
+
+    nightNewGlitch = new FlxSprite(0, 0);
+    nightNewGlitch.frames = Paths.getSparrowAtlas('stages/fright/newNightGlitch');
+    nightNewGlitch.animation.addByPrefix('glitch', "newNightGlitch glitch", 12);
+    nightNewGlitch.antialiasing = false;
+    nightNewGlitch.screenCenter();
+    nightNewGlitch.alpha = 0;
+    nightNewGlitch.cameras = [camHUD];
+    add(nightNewGlitch);
+
+    nightNewSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('stages/fright/5thNight'));
+    nightNewSprite.antialiasing = false;
+    nightNewSprite.screenCenter();
+    nightNewSprite.alpha = 0;
+    nightNewSprite.cameras = [camHUD];
+    add(nightNewSprite);
 }
 
 function create() {
     autoCamZooming = false;
     defaultCamZoom = 1.5;
-    PlayState.camHUD.zoom += 0.01;
 }
 
 function stepHit(curStep:Int) {
     if(curStep == 1) {
-        night.alpha = 1;
-        glitch.alpha = 1;
-        glitch.animation.play('glitch');
+        nightNewSprite.alpha = 1;
+        nightNewGlitch.alpha = 1;
+        nightNewGlitch.animation.play('glitch');
     }
     if(curStep == 5) {
-        glitch.alpha = 0;
+        nightNewGlitch.alpha = 0;
     }
     if(curStep == 25) {
-        FlxTween.tween(night, {alpha: 0}, 3);
+        FlxTween.tween(nightNewSprite, {alpha: 0}, 3);
     }
     if(curStep == 64) {
         autoCamZooming = true;
-        blackScreen.alpha = 0;
-        FlxTween.tween(camGame, {zoom: 1}, 0.5);
-        PlayState.camHUD.zoom += 2;
+        salvageBlack.alpha = 0;
+        FlxG.camera.zoom = 0.7;
         defaultCamZoom = 1;
-    }
-    if(curStep == 688) {
-        poopet();
+        camHUD.zoom += 2.4;
     }
 }
 
+
+
+
 function poopet() {
-    puppet.animation.play('poopet');
-    if(EngineSettings.downscroll && EngineSettings.middleScroll) {
-        FlxTween.tween(puppet, {y: 370}, 1.5, {onComplete: function() {
-            FlxTween.tween(puppet, {y: 570}, 3);
-        }});
-    } else if(EngineSettings.downscroll && !EngineSettings.middleScroll) {
-        FlxTween.tween(puppet, {y: 370}, 1.5, {onComplete: function() {
-            FlxTween.tween(puppet, {y: 570}, 3);
-        }});
-    } else if(!EngineSettings.downscroll && !EngineSettings.middleScroll) {
-        FlxTween.tween(puppet, {y: -200}, 1.5, {onComplete: function() {
-            FlxTween.tween(puppet, {y: 0}, 3);
-        }});
-    } else if(!EngineSettings.downscroll && EngineSettings.middleScroll) {
-        FlxTween.tween(puppet, {y: -200}, 1.5, {onComplete: function() {
-            FlxTween.tween(puppet, {y: 0}, 3);
-        }});
+    if(EngineSettings.downscroll == true) {
+        FlxTween.tween(puppet, { y: 300}, 1.5, {onComplete: function() {
+                FlxTween.tween(puppet, { y: 600}, 3);
+    }});
+    }else {
+        FlxTween.tween(puppet, { y: FlxG.height - 650}, 1.5, {onComplete: function() {
+            FlxTween.tween(puppet, { y: -400}, 3);
+    }});
     }
 }
