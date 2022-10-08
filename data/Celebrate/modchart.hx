@@ -104,7 +104,7 @@ function onCountdown(countdown:Int) {
             var ready:FlxSprite = new FlxSprite().loadGraphic(Paths.image("weeb/pixelUI/ready-pixel"));
             ready.scrollFactor.set();
             ready.updateHitbox();
-            ready.setGraphicSize(Std.int(ready.width * 3));
+            ready.setGraphicSize(Std.int(ready.width * 1));
             ready.screenCenter();
             PlayState.add(ready);
 
@@ -122,7 +122,7 @@ function onCountdown(countdown:Int) {
             var set:FlxSprite = new FlxSprite().loadGraphic(Paths.image("weeb/pixelUI/set-pixel"));
             set.scrollFactor.set();
             set.updateHitbox();
-            set.setGraphicSize(Std.int(set.width * 3));
+            set.setGraphicSize(Std.int(set.width * 1));
             set.screenCenter();
             PlayState.add(set);
 
@@ -139,7 +139,7 @@ function onCountdown(countdown:Int) {
             var date:FlxSprite = new FlxSprite().loadGraphic(Paths.image("weeb/pixelUI/date-pixel"));
             date.scrollFactor.set();
             date.updateHitbox();
-            date.setGraphicSize(Std.int(date.width * 3));
+            date.setGraphicSize(Std.int(date.width * 1));
             date.screenCenter();
             PlayState.add(date);
 
