@@ -7,7 +7,7 @@ function update() {
 
 function onGenerateStaticArrows() {
     blackScreen = new FlxSprite(-600, -400).makeGraphic(Std.int(FlxG.width * 5), Std.int(FlxG.height * 5), 0xFF000000);
-    blackScreen.alpha = 0.8;
+    blackScreen.alpha = 0.0001;
     PlayState.add(blackScreen);
 }
 
