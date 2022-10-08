@@ -40,11 +40,21 @@ function update(elapsed) {
 	dust.alpha = FlxMath.lerp(0.6, dust.alpha, boundTo(1 - (elapsed * 3.125), 0, 1));
 	dustFG.alpha = FlxMath.lerp(0.5, dustFG.alpha, boundTo(1 - (elapsed * 3.125), 0, 1));
 }
+
 function boundTo(value:Float, min:Float, max:Float):Float {
 	var newValue:Float = value;
 	if(newValue < min) newValue = min;
 	else if(newValue > max) newValue = max;
 	return newValue;
+}
+
+function playAnimation(character:String, anim:String) {
+	switch(character) {
+		case "dad", "DAD", "daddy", "Dad":
+			PlayState.dad.playAnim(anim);
+		default:
+			PlayState.bf.playAnim(anim);
+	}
 }
 
 function stepHit(curStep) {
@@ -55,7 +65,6 @@ var lightTween:FlxTween;
 function beatHit(curBeat) {
 	stage.onBeat();
 
-
 	if (curBeat % lightningTimer == 0){
 		lightning.flipX = FlxG.random.bool(50);
 
@@ -63,7 +72,7 @@ function beatHit(curBeat) {
 		if(lightningTimer >= 2) FlxTween.tween(vignette, {alpha: 0.4}, 0.4 * lightningTimer);
 		if(lightningTimer < 2){
 			lightgrad7.alpha = 0.7;
-			if(lightTween != null) lightTween.cancel();
+			if (lightTween != null) lightTween.cancel();
 			lightTween = FlxTween.tween(lightgrad7, {alpha: 0}, 0.4 * lightningTimer);
 		} 
 		lightning.alpha = 1;
@@ -73,21 +82,21 @@ function beatHit(curBeat) {
 				lightning.x = FlxG.random.int(-200, 1000);
 				lightning.animation.play('blue', true);
 				lightgrad1.alpha = 0.9;
-				FlxTween.tween(lightgrad1, {alpha: 0}, 0.4 * lightningTimer);
+				if (curBeat != 400) FlxTween.tween(lightgrad1, {alpha: 0}, 0.4 * lightningTimer);
 				lightgrad4.alpha = 0.6;
 				FlxTween.tween(lightgrad4, {alpha: 0}, 0.4 * lightningTimer);
 			case 1:
 				lightning.x = FlxG.random.int(-200, 1000);
 				lightning.animation.play('pink', true);
 				lightgrad2.alpha = 0.9;
-				FlxTween.tween(lightgrad2, {alpha: 0}, 0.4 * lightningTimer);
+				if (curBeat != 400) FlxTween.tween(lightgrad2, {alpha: 0}, 0.4 * lightningTimer);
 				lightgrad5.alpha = 0.6;
 				FlxTween.tween(lightgrad5, {alpha: 0}, 0.4 * lightningTimer);
 			case 2:
 				lightning.x = FlxG.random.int(-200, 1000);
 				lightning.animation.play('purple', true);
 				lightgrad3.alpha = 0.9;
-				FlxTween.tween(lightgrad3, {alpha: 0}, 0.4 * lightningTimer);
+				if (curBeat != 400) FlxTween.tween(lightgrad3, {alpha: 0}, 0.4 * lightningTimer);
 				lightgrad6.alpha = 0.6;
 				FlxTween.tween(lightgrad6, {alpha: 0}, 0.4 * lightningTimer);
 		}
@@ -95,12 +104,40 @@ function beatHit(curBeat) {
 			lightning.alpha = 0;
 		}
 	}
+
+	switch(curBeat) {
+		case 45, 173, 400:
+			lightningTimer = 100;
+		case 48, 192, 200, 216, 312:
+			lightningTimer = 1;
+		case 135, 184, 208, 240, 367:
+			lightningTimer = 2;
+	}
+}
+
+function FGflash(value1, value2) {
+	lightgrad7.alpha = 0.7;
+	if (lightTween != null) lightTween.cancel();
+	lightTween = FlxTween.tween(lightgrad7, {alpha: 0}, 0.4 * lightningTimer);
+	// CameraZoom(value1, value2);;
+}
+
+function CameraZoom(value1, value2) {
+	if (FlxG.camera.zoom < 1.35) {
+		var camZoom:Float = Std.parseFloat(value1);
+		var hudZoom:Float = Std.parseFloat(value2);
+		if(Math.isNaN(camZoom)) camZoom = 0.015;
+		if(Math.isNaN(hudZoom)) hudZoom = 0.03;
+
+		FlxG.camera.zoom += camZoom;
+		camHUD.zoom += hudZoom;
+	}
 }
 
 var emitter:FlxEmitter;
 var emitter2:FlxEmitter;
 
-var lightningTimer:Int = 1;
+var lightningTimer:Int = 2;
 var lightning:FlxSprite;
 var lightgrad1:FlxSprite;
 var lightgrad2:FlxSprite;
@@ -110,6 +147,8 @@ var lightgrad5:FlxSprite;
 var lightgrad6:FlxSprite;
 var lightgrad7:FlxSprite;
 function doNewCreateLOL() {
+
+	EngineSettings.botplay = true;
 
 	// for (i in 0...6) {
 	// 		//first time using emitters sorry if i broke an unspeakable rule or something YES ziffy you did you idiot
@@ -173,9 +212,9 @@ function doNewCreateLOL() {
 		// lightning = new BGSprite('stages/scott/lightning', 330, 250, 0.6, 0.6, ['blue', 'pink', 'purple']);
 		lightning = new FlxSprite(330, 250);
 		lightning.frames = Paths.getSparrowAtlas('stages/scott/lightning');
-		lightning.animation.addByPrefix('blue', 'blue', 24);
-		lightning.animation.addByPrefix('pink', 'pink', 24);
-		lightning.animation.addByPrefix('purple', 'purple', 24);
+		lightning.animation.addByPrefix('blue', 'blue', 24, false);
+		lightning.animation.addByPrefix('pink', 'pink', 24, false);
+		lightning.animation.addByPrefix('purple', 'purple', 24, false);
 		lightning.animation.play('blue');
 		lightning.antialiasing = EngineSettings.antialiasing;
 		lightning.scrollFactor.set(0.5,0.5);
