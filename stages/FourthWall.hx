@@ -148,6 +148,8 @@ var lightgrad6:FlxSprite;
 var lightgrad7:FlxSprite;
 function doNewCreateLOL() {
 
+	EngineSettings.botplay = true;
+
 	// for (i in 0...6) {
 	// 		//first time using emitters sorry if i broke an unspeakable rule or something YES ziffy you did you idiot
 	// 		//hi ziffy hi fabs
