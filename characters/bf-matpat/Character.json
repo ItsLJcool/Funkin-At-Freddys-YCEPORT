@@ -15,19 +15,19 @@
 			"indices": null,
 			"x": 0,
 			"y": 0,
-			"anim": "bf_matpat m right",
+			"anim": "bf_matpat down",
 			"loop": false,
-			"name": "singRIGHTmiss",
-			"framerate": 24
+			"name": "singDOWN",
+			"framerate": 15
 		},
 		{
 			"indices": null,
 			"x": 0,
 			"y": 0,
-			"anim": "bf_matpat down",
+			"anim": "bf_matpat m right",
 			"loop": false,
-			"name": "singDOWN",
-			"framerate": 24
+			"name": "singRIGHTmiss",
+			"framerate": 15
 		},
 		{
 			"indices": null,
@@ -36,7 +36,7 @@
 			"anim": "bf_matpat mleft",
 			"loop": false,
 			"name": "singLEFTmiss",
-			"framerate": 24
+			"framerate": 15
 		},
 		{
 			"indices": null,
@@ -45,7 +45,7 @@
 			"anim": "bf_matpat up",
 			"loop": false,
 			"name": "singUP",
-			"framerate": 24
+			"framerate": 15
 		},
 		{
 			"indices": null,
@@ -63,7 +63,7 @@
 			"anim": "bf_matpat hey",
 			"loop": false,
 			"name": "hey",
-			"framerate": 24
+			"framerate": 15
 		},
 		{
 			"indices": null,
@@ -72,7 +72,7 @@
 			"anim": "bf_matpat mdown",
 			"loop": false,
 			"name": "singDOWNmiss",
-			"framerate": 24
+			"framerate": 15
 		},
 		{
 			"indices": null,
@@ -81,16 +81,7 @@
 			"anim": "bf_matpat right",
 			"loop": false,
 			"name": "singRIGHT",
-			"framerate": 24
-		},
-		{
-			"indices": null,
-			"x": 0,
-			"y": 0,
-			"anim": "bf_matpat mup",
-			"loop": false,
-			"name": "singUPmiss",
-			"framerate": 24
+			"framerate": 15
 		},
 		{
 			"indices": null,
@@ -99,7 +90,16 @@
 			"anim": "bf_matpat left",
 			"loop": false,
 			"name": "singLEFT",
-			"framerate": 24
+			"framerate": 15
+		},
+		{
+			"indices": null,
+			"x": 0,
+			"y": 0,
+			"anim": "bf_matpat mup",
+			"loop": false,
+			"name": "singUPmiss",
+			"framerate": 15
 		}
 	],
 	"danceSteps": [
