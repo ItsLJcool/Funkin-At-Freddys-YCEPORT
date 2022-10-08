@@ -60,13 +60,14 @@ function createPost() {
 		add(menuItems[i]);
 	}
     
-    changeItem(0);
-    
     logo = new FlxSprite(100,-320).loadGraphic(Paths.image('thelogo'));
     logo.scale.set(0.3,0.3);
     logo.updateHitbox();
-    arrowMenu.antialiasing = EngineSettings.antialiasing;
+    logo.antialiasing = EngineSettings.antialiasing;
+    logo.scrollFactor.set(0, 0);
     add(logo);
+    
+    changeItem(0);
 }
 
 function update(elapsed:Float) {
