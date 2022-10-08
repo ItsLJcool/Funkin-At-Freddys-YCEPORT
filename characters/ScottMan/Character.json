@@ -1,8 +1,8 @@
 {
 	"arrowColors": null,
 	"camOffset": {
-		"x": 30,
-		"y": 170
+		"x": -230,
+		"y": 70
 	},
 	"globalOffset": {
 		"x": -150,
@@ -11,15 +11,6 @@
 	"healthbarColor": "#BCFFFC",
 	"flipX": false,
 	"anims": [
-		{
-			"indices": null,
-			"x": 0,
-			"y": -186,
-			"anim": "idle",
-			"loop": false,
-			"name": "idle",
-			"framerate": 24
-		},
 		{
 			"indices": null,
 			"x": 40,
@@ -31,11 +22,11 @@
 		},
 		{
 			"indices": null,
-			"x": -74,
-			"y": -308,
-			"anim": "down",
+			"x": 0,
+			"y": -186,
+			"anim": "idle",
 			"loop": false,
-			"name": "singDOWN",
+			"name": "idle",
 			"framerate": 24
 		},
 		{
@@ -49,11 +40,11 @@
 		},
 		{
 			"indices": null,
-			"x": 189,
-			"y": -295,
-			"anim": "left",
+			"x": -74,
+			"y": -308,
+			"anim": "down",
 			"loop": false,
-			"name": "singLEFT",
+			"name": "singDOWN",
 			"framerate": 24
 		},
 		{
@@ -63,6 +54,15 @@
 			"anim": "up",
 			"loop": false,
 			"name": "singUP",
+			"framerate": 24
+		},
+		{
+			"indices": null,
+			"x": 189,
+			"y": -295,
+			"anim": "left",
+			"loop": false,
+			"name": "singLEFT",
 			"framerate": 24
 		}
 	],
@@ -80,5 +80,5 @@
 			1
 		]
 	],
-	"scale": 1.55
+	"scale": 1.6
 }
