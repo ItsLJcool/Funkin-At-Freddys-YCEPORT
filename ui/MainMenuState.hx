@@ -60,12 +60,11 @@ function createPost() {
 		add(menuItems[i]);
 	}
     
-    logo = new FlxSprite(100,-320).loadGraphic(Paths.image('thelogo'));
-    logo.scale.set(0.3,0.3);
-    logo.updateHitbox();
-    logo.antialiasing = EngineSettings.antialiasing;
-    logo.scrollFactor.set(0, 0);
-    add(logo);
+	var logo:FlxSprite = new FlxSprite(-425, -475).loadGraphic(Paths.image('thelogo'));
+	logo.setGraphicSize(Std.int(logo.width * 0.3));
+	logo.scrollFactor.set();
+	logo.antialiasing = true;
+	add(logo);
     
     changeItem(0);
 }
