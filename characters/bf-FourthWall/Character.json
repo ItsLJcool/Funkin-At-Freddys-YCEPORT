@@ -1,8 +1,8 @@
 {
 	"arrowColors": null,
 	"camOffset": {
-		"x": 0,
-		"y": 0
+		"x": -380,
+		"y": -20
 	},
 	"globalOffset": {
 		"x": 100,
@@ -107,5 +107,5 @@
 			1
 		]
 	],
-	"scale": 1.55
+	"scale": 1.6
 }
