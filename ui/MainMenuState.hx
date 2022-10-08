@@ -66,7 +66,9 @@ function createPost() {
 function update(elapsed:Float) {
 
     if (!selectedSomethin) {
-        
+        if (controlsJust.S)
+            FlxG.switchState(new StoryMainMenu());
+            
         if (controlsJustNUM([87,38])) {
             CoolUtil.playMenuSFX(0);
             changeItem(-1); }
@@ -80,12 +82,6 @@ function update(elapsed:Float) {
 
         if (controls.UI_RIGHT_P)
             changeDiff(1);
-
-        if (controls.BACK) {
-            selectedSomethin = true;
-            FlxG.sound.play(Paths.sound('cancelMenu'));
-            MusicBeatState.switchState(new TitleState());
-        }
 
         if (controlsJustNUM([13])) {
                 selectedSomethin = true;
