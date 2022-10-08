@@ -1,16 +1,6 @@
 {
 	"songs": [
 		{
-			"displayName": null,
-			"difficulties": [
-				"Normal"
-			],
-			"char": "matpat",
-			"color": "#9FEA9A",
-			"name": "Just-A-Theory",
-			"bpm": 180
-		},
-		{
 			"difficulties": [
 				"Easy",
 				"Normal",
@@ -87,6 +77,16 @@
 			"color": "#560053",
 			"name": "umbra",
 			"bpm": 190
+		},
+		{
+			"displayName": null,
+			"difficulties": [
+				"Normal"
+			],
+			"char": "matpat",
+			"color": "#9FEA9A",
+			"name": "Just-A-Theory",
+			"bpm": 180
 		},
 		{
 			"bpm": 120,
