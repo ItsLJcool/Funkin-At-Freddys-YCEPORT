@@ -89,20 +89,20 @@ function stepHit(curStep:Int) {
 function poopet() {
     puppet.animation.play('poopet');
     if(EngineSettings.downscroll && EngineSettings.middleScroll) {
-        FlxTween.tween(puppet, {y: 370}, 1, {onComplete: function() {
-            FlxTween.tween(puppet, {y: 570}, 2);
-        }, loopDelay: 4});
+        FlxTween.tween(puppet, {y: 370}, 1.5, {onComplete: function() {
+            FlxTween.tween(puppet, {y: 570}, 3);
+        }});
     } else if(EngineSettings.downscroll && !EngineSettings.middleScroll) {
-        FlxTween.tween(puppet, {y: 370}, 1, {onComplete: function() {
-            FlxTween.tween(puppet, {y: 570}, 2);
-        }, loopDelay: 4});
+        FlxTween.tween(puppet, {y: 370}, 1.5, {onComplete: function() {
+            FlxTween.tween(puppet, {y: 570}, 3);
+        }});
     } else if(!EngineSettings.downscroll && !EngineSettings.middleScroll) {
-        FlxTween.tween(puppet, {y: -200}, 1, {onComplete: function() {
-            FlxTween.tween(puppet, {y: 0}, 2);
-        }, loopDelay: 4});
+        FlxTween.tween(puppet, {y: -200}, 1.5, {onComplete: function() {
+            FlxTween.tween(puppet, {y: 0}, 3);
+        }});
     } else if(!EngineSettings.downscroll && EngineSettings.middleScroll) {
-        FlxTween.tween(puppet, {y: -200}, 1, {onComplete: function() {
-            FlxTween.tween(puppet, {y: 0}, 2);
-        }, loopDelay: 4});
+        FlxTween.tween(puppet, {y: -200}, 1.5, {onComplete: function() {
+            FlxTween.tween(puppet, {y: 0}, 3);
+        }});
     }
 }
