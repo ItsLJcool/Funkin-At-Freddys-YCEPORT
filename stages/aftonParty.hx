@@ -2,12 +2,12 @@
 var stage:Stage = null;
 function create() {
 	stage = loadStage('aftonParty');
-    kids = new FlxSprite(-200,0);
+    kids = new FlxSprite(-630, -350);
     kids.frames = Paths.getSparrowAtlas('stages/aftonParty/front');
     kids.animation.addByPrefix('kids', 'front kids', 24, true);
     kids.animation.play('kids');
-    kids.antialiasing = EngineSettings.antialiasing;
-    kids.scale.set(2.5,2);    
+    kids.antialiasing = false;
+    kids.setGraphicSize(Std.int(kids.width * 2.3));
     kids.updateHitbox();
     kids.screenCenter();
     PlayState.add(kids);

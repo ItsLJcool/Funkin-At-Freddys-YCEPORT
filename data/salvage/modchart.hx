@@ -20,6 +20,8 @@ function onGenerateStaticArrows() {
 
     if(EngineSettings.middleScroll == true){
         puppet.screenCenter(FlxAxes.X);
+    } else {
+        puppet.x = 650;
     }
     if(EngineSettings.downscroll == true){
         puppet.flipY = true;
@@ -42,8 +44,6 @@ function onGenerateStaticArrows() {
     bb.antialiasing = true;
     bb.cameras = [camHUD];
     add(bb);
-
-
     
     salvageBlack = new FlxSprite(-600, -400).makeGraphic(Std.int(FlxG.width * 5), Std.int(FlxG.height * 5), 0xFF000000);
     salvageBlack.alpha = 0;
@@ -91,7 +91,7 @@ function onGenerateStaticArrows() {
 
 function create() {
     autoCamZooming = false;
-    defaultCamZoom = 1.5;
+    defaultCamZoom = 1;
 }
 
 function stepHit(curStep:Int) {
@@ -115,17 +115,20 @@ function stepHit(curStep:Int) {
     }
 }
 
-
-
-
 function poopet() {
-    if(EngineSettings.downscroll == true) {
-        FlxTween.tween(puppet, { y: 300}, 1.5, {onComplete: function() {
+    var charType:Int = Std.parseInt(value1);
+    if(Math.isNaN(charType)) charType = 0;
+            
+    switch(charType) {
+        case 0:
+            if(ClientPrefs.downScroll == true)
+                FlxTween.tween(puppet, { y: 300}, 1.5);
+            else
+                FlxTween.tween(puppet, { y: FlxG.height - 650}, 1.5);
+        case 1:
+            if(ClientPrefs.downScroll == true)
                 FlxTween.tween(puppet, { y: 600}, 3);
-    }});
-    }else {
-        FlxTween.tween(puppet, { y: FlxG.height - 650}, 1.5, {onComplete: function() {
-            FlxTween.tween(puppet, { y: -400}, 3);
-    }});
+            else
+                FlxTween.tween(puppet, { y: -400}, 3);
     }
 }
