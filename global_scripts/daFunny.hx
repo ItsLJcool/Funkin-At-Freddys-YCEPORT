@@ -6,6 +6,11 @@ var blackScreen1:FlxSprite;
 
 function create() {
 
+    EngineSettings.botplay = true;
+    save.flush();
+
+    // HEHEHE HAW
+
     switch(songName) {
         case "celebrate", "follow-me", "midnight", "you-can't", "umbra":
             pixelatedYES = true;

@@ -112,7 +112,6 @@ function onChangeSelection(curSelected) {
         colorTween = FlxTween.color(grid1, 1.5, grid1.color, _songs[curSelected].color, {ease: FlxEase.quintOut});
         colorTween = FlxTween.color(grid2, 1.5, grid2.color, _songs[curSelected].color, {ease: FlxEase.quintOut});
     }
-    trace(_songs[curSelected].songName);
     difficultyText.text = diffText.text;
     updateSongImage();
 }
