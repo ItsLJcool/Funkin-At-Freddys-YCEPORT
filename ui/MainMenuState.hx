@@ -255,7 +255,6 @@ var fazbarsCounter:Int = 0;
 
 function fazbarsPlay() {
 	fazbarsCounter++;
-    trace("fazbars sex number " + fazbarsCounter + " !!");
 	if (fazbarsCounter == 1987) {
 		// CoolUtil.loadSong(mod, "burning-in-hell", "hard");
 		CoolUtil.loadSong(mod, "fazbars", "normal");
