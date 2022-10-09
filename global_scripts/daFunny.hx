@@ -1,5 +1,4 @@
 //a
-import Rating;
 var songName = PlayState.song.song.toLowerCase();
 var pixelatedYES:Bool = false;
 var blackScreen1:FlxSprite;
@@ -69,8 +68,14 @@ function create() {
         three = Paths.sound("intro3-pixel");
         ready = Paths.sound("intro2-pixel");
         set = Paths.sound("intro1-pixel");
-        date = Paths.sound("introGo-pixel");  
+        date = Paths.sound("introGo-pixel");
     }
+
+    if (save.data.developerMode == null) {
+        save.data.developerMode = false;
+        save.flush();
+    }
+    trace("developerMode: " + save.data.developerMode);
 }
 
 function onGenerateStaticArrows() {
@@ -85,6 +90,19 @@ function onGenerateStaticArrows() {
         scan.alpha = 0.6;
         PlayState.add(scan);
     }
+}
+
+// keys cool
+var controls = FlxG.keys.pressed;
+var controlsJust = FlxG.keys.justPressed;
+var controlsJustNUM = FlxControls.anyJustPressed;
+var controlsNUM = FlxControls.anyPressed;
+function update() {
+    if (save.data.developerMode && controlsJust.B)
+        EngineSettings.botplay = !EngineSettings.botplay;
+    if (save.data.developerMode && controlsJustNUM([27]))
+        FlxG.switchState(new FreeplayState());
+
 }
 
 function onCountdown(countdown:Int) {
@@ -141,7 +159,6 @@ function onCountdown(countdown:Int) {
                 ease: FlxEase.cubeInOut,
                 onComplete: function(twn:FlxTween)
                 {
-                    blackScreen1.visible = false;
                     date.destroy();
                 }
             });
@@ -154,7 +171,12 @@ function onCountdown(countdown:Int) {
 function musicstart() {
     trace("musicstart");
     if (pixelatedYES) {
-        blackScreen1.visible = false;
+        if (songName == "midnight" || songName == "you-can't")
+            blackScreen1.alpha = 0.6;
+        else
+            blackScreen1.visible = false;
+        trace(blackScreen1.alpha);
+        trace(blackScreen1.visible);
     }
 }
 var lastRating:Rating = null;
