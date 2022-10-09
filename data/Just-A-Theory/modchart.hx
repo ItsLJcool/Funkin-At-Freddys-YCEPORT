@@ -1,4 +1,4 @@
-//Need Help Moving Camera On Character Change
+import Section;
 
 function create() {
     defaultCamZoom = 0.9;
@@ -8,70 +8,58 @@ function create() {
     gf.y += 160;
     gf.scrollFactor.set(1,1);
 
-    carpet = new FlxSprite(-200,-200).loadGraphic(Paths.image('stages/matpat/MatPat_Carpet'));
-    carpet.antialiasing = EngineSettings.antialiasing;
-    carpet.scale.set(1,1);
-    carpet.updateHitbox();
-    PlayState.add(carpet);
+    stageFront = new FlxSprite(-100, -200).loadGraphic(Paths.image('stages/matpat/MatPat_Carpet'));
+    add(stageFront);
 
-    walls = new FlxSprite(-200,-200).loadGraphic(Paths.image('stages/matpat/MatPat_Walls'));
-    walls.antialiasing = EngineSettings.antialiasing;
-    walls.scale.set(1,1);
-    walls.updateHitbox();
-    PlayState.add(walls);
+    bg = new FlxSprite(-100, -200).loadGraphic(Paths.image('stages/matpat/MatPat_Walls'));
+    add(bg);
 
-    couch = new FlxSprite(-200,-200).loadGraphic(Paths.image('stages/matpat/MatPat_Couch'));
-    couch.antialiasing = EngineSettings.antialiasing;
-    couch.scale.set(1,1);
-    couch.updateHitbox();
-    PlayState.add(couch);
+    couch = new FlxSprite(-100, -200).loadGraphic(Paths.image('stages/matpat/MatPat_Couch'));
+    add(couch);
 
-    table = new FlxSprite(-300,-200).loadGraphic(Paths.image('stages/matpat/MatPat_Table'));
-    table.antialiasing = EngineSettings.antialiasing;
-    table.scale.set(1,1);
-    table.updateHitbox();
-    PlayState.add(table);
+    table =  bg = new FlxSprite(-100, -200).loadGraphic(Paths.image('stages/matpat/MatPat_Table'));
+    add(table);
 
-    background = new FlxSprite(-200,-200).loadGraphic(Paths.image('stages/matpat/Background'));
-    background.antialiasing = EngineSettings.antialiasing;
-    background.scale.set(1,1);
-    background.scrollFactor.set();
-    background.updateHitbox();
-    background.visible = false;
-    PlayState.add(background);
+    matpatBG =  bg = new FlxSprite(-500, -200).loadGraphic(Paths.image('stages/matpat/Background'));
+    matpatBG.alpha = 0;
+    matpatBG.setGraphicSize(Std.int(matpatBG.width * 1.5));
+    matpatBG.antialiasing = true;
+    add(matpatBG);
 
-    gt = new FlxSprite(50,100);
-    gt.frames = Paths.getSparrowAtlas('stages/matpat/gt logo');
-    gt.animation.addByPrefix('stat', 'gt logo stat', 24, true);
-    gt.animation.addByPrefix('left', 'gt logo tl', 24, true);
-    gt.animation.addByPrefix('right', 'gt logo tr', 24, true);
-    gt.animation.addByPrefix('down', 'gt logo bl', 24, true);
-    gt.animation.addByPrefix('up', 'gt logo br', 24, true);
-    gt.animation.addByPrefix('shine', 'gt logo shine', 24, true);
-    gt.animation.addByPrefix('shinestat', 'gt logo stashine', 24, true);
-    gt.scrollFactor.set();
-    gt.animation.play('stat');
-    gt.antialiasing = EngineSettings.antialiasing;
-    gt.scale.set(0.6,0.6);
-    gt.updateHitbox();
-    gt.visible = false;
-    PlayState.add(gt);
+    matLogo = new FlxSprite(-180, -100);
 
-    floor = new FlxSprite(-200,-200).loadGraphic(Paths.image('stages/matpat/Floor'));
-    floor.antialiasing = EngineSettings.antialiasing;
-    floor.scale.set(1,1);
-    floor.updateHitbox();
-    floor.visible = false;
-    PlayState.add(floor);
+    matLogo.frames = Paths.getSparrowAtlas('stages/matpat/gt logo');
+    matLogo.animation.addByPrefix('static', "gt logo stat", 16);
+    matLogo.animation.addByPrefix('topleft', "gt logo tl", 16);
+    matLogo.animation.addByPrefix('topright', "gt logo tr", 16);
+    matLogo.animation.addByPrefix('bottomleft', "gt logo bl", 16);
+    matLogo.animation.addByPrefix('bottomright', "gt logo br", 16);
+    matLogo.animation.addByPrefix('shine', "gt logo shine", 16);
+    matLogo.animation.addByPrefix('shinestat', "gt logo stashine", 16);
+    matLogo.scrollFactor.set(0.5,0.3);
+    matLogo.setGraphicSize(Std.int(matLogo.width * 0.75));
+    matLogo.antialiasing = true;
+    matLogo.updateHitbox();
+    matLogo.alpha = 0;
+    add(matLogo);
+    matLogo.animation.play('static');
+
+    logoArrayAnim = ['static', 'topleft', 'topright', 'bottomleft', 'bottomright', 'shine'];
+
+    matpatFloor =  bg = new FlxSprite(-800, -350).loadGraphic(Paths.image('stages/matpat/Floor'));
+    matpatFloor.alpha = 0;
+    matpatFloor.setGraphicSize(Std.int(matpatFloor.width * 3));
+    matpatFloor.antialiasing = true;
+    add(matpatFloor);
     
-    dadSecondCharacter= new Character(300, 0, mod + ":" + "matpat-pixel");
+    dadSecondCharacter= new Character(300, 1000, mod + ":" + "matpat-pixel");
     PlayState.dads.push(dadSecondCharacter);
     dadSecondCharacter.visible = false; 
     PlayState.add(dadSecondCharacter);
     
     bfSecondCharacter = PlayState.boyfriend; 
   
-    bfSecondCharacter = new Boyfriend(800,100, mod + ":" + "bf-matpat");
+    bfSecondCharacter = new Boyfriend(800,1000, mod + ":" + "bf-matpat");
     bfSecondCharacter.visible = false; 
     PlayState.boyfriends.push(bfSecondCharacter);
     PlayState.add(bfSecondCharacter);
@@ -81,83 +69,77 @@ function createPost() {
     iconP1.changeCharacter(mod + ":bf-matpat");
 }
 
-function onGenerateStaticArrows() {
-    whiteScreen = new FlxSprite(-600, -400).makeGraphic(Std.int(FlxG.width * 5), Std.int(FlxG.height * 5), 0xFFFFFFFF);
-    whiteScreen.alpha = 0;
-    PlayState.add(whiteScreen);
+function MatpatPixel() {
+    camGame.flash(0xFF0ec30c, 1);
 
-    greenscreen = new FlxSprite(-600, -400).makeGraphic(Std.int(FlxG.width * 5), Std.int(FlxG.height * 5), 0xFF00FF15);
-    greenscreen.alpha = 0;
-    PlayState.add(greenscreen);
+    matpatBG.alpha = 1;
+    matpatFloor.alpha = 1;
+    matLogo.alpha = 1;
+    defaultCamZoom = 1;
+    gf.alpha = 0;
+
+    boyfriend.visible = false;
+    dad.visible = false;
+    gf.visible = false;
+    dadSecondCharacter.visible = true; 
+    bfSecondCharacter.visible = true; 
+}
+function Matpattopixelfirst() {
+    curMatAnim = 1;
+
+    matpatBG.alpha = 1;
+    matpatFloor.alpha = 1;
+    matLogo.alpha = 1;
+    defaultCamZoom = 0.8;
+    gf.alpha = 0;
+
+    camHUD.visible = false;
+    camFollow.x = 300;
+    camFollow.y = -800;
+    isCameraOnForcedPos = true;
+
+    boyfriend.visible = false;
+    dad.visible = false;
+    gf.visible = false;
+    dadSecondCharacter.visible = true; 
+    bfSecondCharacter.visible = true; 
+
+    matLogo.animation.play(logoArrayAnim[curMatAnim]);
+    curMatAnim += 1;
 }
 
-function stepHit(curStep) {
-    if(curStep == 256) {
-        gt.visible = true;
-        background.visible = true;
-        floor.visible = true;
-        gf.visible = false;
-        dad.visible = false;
-        boyfriend.visible = false;
-        bfSecondCharacter.visible = true; 
-        dadSecondCharacter.visible = true; 
-        gt.animation.play('left');
-    }
-    if(curStep == 260) {
-        gt.animation.play('right');
-    }
-    if(curStep == 264) {
-        gt.animation.play('down');
-    }
-    if(curStep == 266) {
-        gt.animation.play('up');
-    }
-    if(curStep == 270) {
-        gt.animation.play('shine');
-    }
-    if(curStep == 272) {
-        gt.animation.play('shinestat');
-        defaultCamZoom = 1.2;
-        gt.scrollFactor.set(0.7,0.7);
-        defaultCamZoom = 0.9;
-        PlayState.camHUD.zoom += 2;
-    }
-    if(curStep == 576) {
-        whiteScreen.alpha = 1;
-        FlxTween.tween(whiteScreen, {alpha: 0}, 1);
-        gt.visible = false;
-        background.visible = false;
-        floor.visible = false;
-        gf.visible = true;
-        dad.visible = true;
-        boyfriend.visible = true;
-        bfSecondCharacter.visible = false; 
-        dadSecondCharacter.visible = false; 
-    }
-    if(curStep == 960) {
-        greenscreen.alpha = 1;
-        FlxTween.tween(greenscreen, {alpha: 0}, 1);
-        gt.visible = true;
-        background.visible = true;
-        floor.visible = true;
-        gf.visible = false;
-        dad.visible = false;
-        boyfriend.visible = false;
-        bfSecondCharacter.visible = true; 
-        dadSecondCharacter.visible = true;
-        defaultCamZoom = 1.2;
-    }
-    if(curStep == 1088) {
-        whiteScreen.alpha = 1;
-        FlxTween.tween(whiteScreen, {alpha: 0}, 1);
-        gt.visible = false;
-        background.visible = false;
-        floor.visible = false;
-        gf.visible = true;
-        dad.visible = true;
-        boyfriend.visible = true;
-        bfSecondCharacter.visible = false; 
-        dadSecondCharacter.visible = false; 
-        defaultCamZoom = 0.9;
+function gtlogo() {
+    matLogo.animation.play(logoArrayAnim[curMatAnim]);
+    curMatAnim += 1;
+}
+function Zoomoutmoment() {
+    camHUD.zoom += 2.4;
+    matLogo.animation.play('shinestat');
+    defaultCamZoom = 1;
+    isCameraOnForcedPos = false;
+    camHUD.visible = true;
+    FlxTween.tween(bfSecondCharacter, { y: 700}, 2, {ease: FlxEase.quadInOut});
+    FlxTween.tween(dadSecondCharacter, { y: 600}, 2, {ease: FlxEase.quadInOut});
+    FlxTween.tween(matpatFloor, { y: -850}, 2, {ease: FlxEase.quadInOut});
+}
+function matpattonormal() {
+    camGame.flash(0xFFFFFFFF, 2);
+    
+    matpatBG.alpha = 0;
+    matpatFloor.alpha = 0;
+    matLogo.alpha = 0;
+    defaultCamZoom = 0.9;
+    gf.alpha = 1;
+
+    boyfriend.visible = true;
+    dad.visible = true;
+    gf.visible = true;
+    dadSecondCharacter.visible = false; 
+    bfSecondCharacter.visible = false; 
+}
+
+function update() {
+    if(!section.mustHitSection && !dad.visible) {
+        camFollow.y += 200;   
     }
 }

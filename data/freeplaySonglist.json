@@ -10,7 +10,7 @@
 			"char": "afton",
 			"color": "#9F58B6",
 			"name": "Celebrate",
-			"bpm": 145
+			"color": "#A357AB"
 		},
 		{
 			"difficulties": [
@@ -20,7 +20,7 @@
 			],
 			"displayName": null,
 			"char": "afton",
-			"bpm": 175,
+			"color": "#A357AB",
 			"name": "Follow-me",
 			"color": "#C26ECF"
 		},
@@ -34,7 +34,7 @@
 			"char": "aftonNight",
 			"color": "#9F4AC4",
 			"name": "midnight",
-			"bpm": 160
+			"color": "#A357AB"
 		},
 		{
 			"difficulties": [
@@ -44,7 +44,7 @@
 			],
 			"displayName": null,
 			"char": "suitedAfton",
-			"bpm": 195,
+			"color": "#B28607",
 			"name": "you-can't",
 			"color": "#B1B323"
 		},
@@ -56,7 +56,7 @@
 			"char": "springtrap",
 			"color": "#465F25",
 			"name": "salvage",
-			"bpm": 160
+			"color": "#252418"
 		},
 		{
 			"displayName": null,
@@ -66,7 +66,7 @@
 			"char": "springtrap",
 			"color": "#4D7128",
 			"name": "nightmare",
-			"bpm": 142
+			"color": "#252418"
 		},
 		{
 			"difficulties": [
@@ -74,7 +74,7 @@
 			],
 			"displayName": null,
 			"char": "sb",
-			"bpm": 190,
+			"color": "#3B003B",
 			"name": "umbra",
 			"color": "#560053"
 		},
@@ -84,7 +84,7 @@
 			],
 			"displayName": null,
 			"char": "matpat",
-			"bpm": 180,
+			"color": "#96D162",
 			"name": "Just-A-Theory",
 			"color": "#9FEA9A"
 		},
@@ -96,7 +96,7 @@
 			"char": "ScottMan",
 			"color": "#FFFFFF",
 			"name": "fourth-wall",
-			"bpm": 120
+			"color": "#BCE1FA"
 		}
 	]
 }

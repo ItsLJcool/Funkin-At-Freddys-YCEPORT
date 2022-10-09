@@ -120,7 +120,6 @@ function update() {
         EngineSettings.botplay = !EngineSettings.botplay;
     if (save.data.developerMode && controlsJustNUM([27]))
         FlxG.switchState(new FreeplayState());
-
 }
 
 function onCountdown(countdown:Int) {
@@ -227,6 +226,13 @@ function onShowCombo(combo:Int, coolText:FlxPoint) {
             numScore.x += -49 + (10 + numScore.width) * daLoop;
             numScore.y = 100;
             numScore.cameras = [PlayState.camHUD];
+
+            if(EngineSettings.middleScroll){
+                numScore.x -= 400;
+            }
+            if(EngineSettings.downscroll){
+                numScore.y = 650;
+            }
 
             numScore.updateHitbox();
             PlayState.add(numScore);
