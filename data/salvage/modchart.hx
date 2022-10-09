@@ -109,7 +109,7 @@ function stepHit(curStep:Int) {
     }
 }
 
-function poopet(value1) {
+function puppet(value1) {
     var charType:Int = Std.parseInt(value1);
     if(Math.isNaN(charType)) charType = 0;
             
