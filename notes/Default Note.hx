@@ -8,6 +8,7 @@ function create() {
         default:
             pixelsNote = false;
     }
+    trace(pixelsNote);
     if (!pixelsNote) {
     note.frames = Paths.getSparrowAtlas('NOTE_assets_colored', 'shared');
 
@@ -96,8 +97,8 @@ function create() {
 }
 
 
+if (pixelsNote) {
 function generateStaticArrow(babyArrow:FlxSprite, i:Int) {
-    if (pixelsNote) {
     babyArrow.loadGraphic(Paths.image('weeb/pixelUI/arrows-pixels-colored'), true, 17, 17);
     babyArrow.animation.add('green', [6]);
     babyArrow.animation.add('red', [7]);
