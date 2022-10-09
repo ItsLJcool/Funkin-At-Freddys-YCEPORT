@@ -57,12 +57,12 @@
 			"name": "fourth-wall"
 		},
 		{
-			"end_cutscene": null,
-			"cutscene": null,
-			"difficulties": null,
 			"scripts": [
 				"stages/umbra"
 			],
+			"difficulties": null,
+			"end_cutscene": null,
+			"cutscene": null,
 			"name": "umbra"
 		}
 	]
