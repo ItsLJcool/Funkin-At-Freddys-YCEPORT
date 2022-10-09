@@ -14,7 +14,7 @@ function create() {
 
 function onGenerateStaticArrows() {
 	for (i in PlayState.cpuStrums.members) {
-		i.alpha = 0;
+		i.alpha = 0.0001;
 	}
 }
 
@@ -115,7 +115,7 @@ function FGflash(value1, value2) {
 	lightgrad7.alpha = 0.7;
 	if (lightTween != null) lightTween.cancel();
 	lightTween = FlxTween.tween(lightgrad7, {alpha: 0}, 0.4 * lightningTimer);
-	// CameraZoom(value1, value2);;
+	// CameraZoom(value1, value2);
 }
 
 function CameraZoom(value1, value2) {

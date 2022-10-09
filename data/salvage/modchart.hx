@@ -1,13 +1,4 @@
-function onCountdown(countdown:Int) {
-    switch(countdown) {
-        case 3:
-        case 2:
-        case 1:
-        case 0:
-    }
-    return false;
-}
-
+//a
 function onGenerateStaticArrows() {
     puppet = new FlxSprite(0, -400);
     puppet.frames = Paths.getSparrowAtlas('stages/fright/phantom_poopet');
