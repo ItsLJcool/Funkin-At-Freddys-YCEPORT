@@ -64,7 +64,7 @@ function create() {
     floor.visible = false;
     PlayState.add(floor);
     
-    dadSecondCharacter= new Character(300, 0, mod + ":" + "matpat-pixel");
+    dadSecondCharacter= new Character(300, 80, mod + ":" + "matpat-pixel");
     PlayState.dads.push(dadSecondCharacter);
     dadSecondCharacter.visible = false; 
     PlayState.add(dadSecondCharacter);
@@ -119,7 +119,7 @@ function stepHit(curStep) {
         gt.animation.play('shinestat');
         defaultCamZoom = 1.2;
         gt.scrollFactor.set(0.7,0.7);
-        defaultCamZoom = 0.9;
+        defaultCamZoom = 1.5;
         PlayState.camHUD.zoom += 2;
     }
     if(curStep == 576) {
@@ -159,5 +159,11 @@ function stepHit(curStep) {
         bfSecondCharacter.visible = false; 
         dadSecondCharacter.visible = false; 
         defaultCamZoom = 0.9;
+    }
+}
+
+function update() {
+    if(!dad.visible) {
+        PlayState.camFollow.y = 600;
     }
 }
