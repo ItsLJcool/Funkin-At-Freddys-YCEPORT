@@ -9,6 +9,7 @@ function create() {
 	switch(songName) {
 		case "celebrate", "follow-me", "midnight", "you-can't", "umbra", "consequences":
 			pixelatedYES = true;
+			autoCamZooming = false;
 
 			arcadeoverlay = new FlxSprite(0, 0).loadGraphic(Paths.image('stages/ac'));
 			arcadeoverlay.antialiasing = false;
