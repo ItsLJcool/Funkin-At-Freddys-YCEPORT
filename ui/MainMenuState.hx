@@ -144,9 +144,6 @@ function createPost() {
 function update(elapsed:Float) {
 
     if (!selectedSomethin) {
-        if (controlsJust.R)
-            FlxG.switchState(new StoryMenuState());
-            
         if (controlsJustNUM([87,38])) {
             CoolUtil.playMenuSFX(0);
             changeItem(-1); }

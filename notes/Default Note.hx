@@ -9,7 +9,7 @@ switch(song) {
 }
 function create() {
     if (!pixelsNote) {
-    note.frames = Paths.getSparrowAtlas('NOTE_assets_colored', 'shared');
+    (song != 'fazbars') ? note.frames = Paths.getSparrowAtlas('NOTE_assets_colored', 'shared') : note.frames = Paths.getSparrowAtlas('fazNotes');
 
     switch(note.noteData % PlayState.song.keyNumber) {
         case 0:
@@ -32,7 +32,7 @@ function create() {
     note.setGraphicSize(Std.int(note.width * 0.7));
     note.updateHitbox();
     note.antialiasing = true;
-    note.colored = true;
+    (song != 'fazbars') ? note.colored = true : note.colored = false;
     note.hitOnBotplay = true;
 
     note.animation.play('scroll');
@@ -131,7 +131,8 @@ function generateStaticArrow(babyArrow:FlxSprite, i:Int) {
     }
     }
     else {
-        babyArrow.frames = Paths.getSparrowAtlas('NOTE_assets_colored', 'shared');
+        (song != 'fazbars') ? babyArrow.frames = Paths.getSparrowAtlas('NOTE_assets_colored', 'shared') : babyArrow.frames = Paths.getSparrowAtlas('fazNotes');
+        (song != 'fazbars') ? babyArrow.colored = true : babyArrow.colored = false;
         babyArrow.animation.addByPrefix('green', 'arrowUP');
         babyArrow.animation.addByPrefix('blue', 'arrowDOWN');
         babyArrow.animation.addByPrefix('purple', 'arrowLEFT0');
