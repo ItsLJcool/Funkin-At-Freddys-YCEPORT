@@ -48,7 +48,7 @@ function createPost() {
 	for (anim in animList)
 		songImage.animation.addByPrefix(anim[0], "freeplay " + anim[1], anim[2]);
 
-	songImage.animation.play("you-can't");
+	songImage.animation.play("celebrate");
 	songImage.screenCenter();
 	add(songImage);
 
