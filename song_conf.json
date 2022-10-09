@@ -71,6 +71,13 @@
 			"end_cutscene": null,
 			"cutscene": null,
 			"name": "consequences"
+		},
+		{
+			"scripts": [],
+			"difficulties": [],
+			"end_cutscene": null,
+			"cutscene": null,
+			"name": "fazbars"
 		}
 	]
 }
