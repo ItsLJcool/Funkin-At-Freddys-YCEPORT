@@ -1,12 +1,33 @@
 //a
 var songName = PlayState.song.song.toLowerCase();
 var pixelatedYES:Bool = false;
+var realzFnaf3:Bool = false;
 var blackScreen1:FlxSprite;
 
 function create() {
 
     switch(songName) {
-      case "celebrate", "follow-me", "midnight", "you-can't":
+        case "celebrate", "follow-me", "midnight", "you-can't":
+            pixelatedYES = true;
+
+            arcadeoverlay = new FlxSprite(0, 0).loadGraphic(Paths.image('stages/ac'));
+            arcadeoverlay.antialiasing = false;
+            arcadeoverlay.setGraphicSize(Std.int(arcadeoverlay.width * 1));
+            arcadeoverlay.updateHitbox();
+            arcadeoverlay.screenCenter();
+            arcadeoverlay.y -= 30;
+            PlayState.add(arcadeoverlay);
+            arcadeoverlay.cameras = [PlayState.camHUD];
+
+            three = Paths.sound("intro3-pixel");
+            ready = Paths.sound("intro2-pixel");
+            set = Paths.sound("intro1-pixel");
+            date = Paths.sound("introGo-pixel");
+        case "salvage", "nightmare":
+            realzFnaf3 = true;
+    }
+
+    if (pixelatedYES) {
         ratings = [
         {
             name : "Party!!",
@@ -54,21 +75,6 @@ function create() {
             antialiasing : false
         }
     ];
-        pixelatedYES = true;
-
-        arcadeoverlay = new FlxSprite(0, 0).loadGraphic(Paths.image('stages/ac'));
-        arcadeoverlay.antialiasing = false;
-        arcadeoverlay.setGraphicSize(Std.int(arcadeoverlay.width * 1));
-        arcadeoverlay.updateHitbox();
-        arcadeoverlay.screenCenter();
-        arcadeoverlay.y -= 30;
-        PlayState.add(arcadeoverlay);
-        arcadeoverlay.cameras = [PlayState.camHUD];
-
-        three = Paths.sound("intro3-pixel");
-        ready = Paths.sound("intro2-pixel");
-        set = Paths.sound("intro1-pixel");
-        date = Paths.sound("introGo-pixel");
     }
 
     if (save.data.developerMode == null) {
@@ -89,6 +95,8 @@ function onGenerateStaticArrows() {
         scan.updateHitbox();
         scan.alpha = 0.6;
         PlayState.add(scan);
+
+        camHUD.alpha = 0.0001;
     }
 }
 
@@ -163,9 +171,18 @@ function onCountdown(countdown:Int) {
                 }
             });
             
+        }
+        return false;
     }
-    return false;
-}
+    if (realzFnaf3) {
+        switch(countdown) {
+            case 3:
+            case 2:
+            case 1:
+            case 0:
+        }
+        return false;
+    }
 }
 
 function musicstart() {
@@ -177,6 +194,7 @@ function musicstart() {
             blackScreen1.visible = false;
         trace(blackScreen1.alpha);
         trace(blackScreen1.visible);
+        camHUD.alpha = 1;
     }
 }
 var lastRating:Rating = null;

@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 var bb:FlxSprite;
 var canGlitchSalvage = false;
 
+=======
+//a
+>>>>>>> ad68e427eb5db4f6b880d2a1f149d9e5706303b4
 function onGenerateStaticArrows() {
     puppet = new FlxSprite(0, -400);
     puppet.frames = Paths.getSparrowAtlas('stages/fright/phantom_poopet');
