@@ -1,0 +1,246 @@
+{
+    "credits" : [
+        {
+            "name" : "JcJack",
+            "role" : "Lead Director & Lead artist of the Afton Week, Pixel UI, and pixel backgrounds/characters",
+            "icon" : "credits/jcjack",
+            "urls" : [
+                {
+                    "name" : "Twitter",
+                    "url" : "https://twitter.com/JcJack777"
+                }
+            ]
+        },
+        {
+            "name" : "SpagOs",
+            "role" : "Co-director\nProfessional Woman Kisser & Lead artist for Matpat, backgrounds, and menu assets",
+            "icon" : "credits/spagos",
+            "urls" : [
+                {
+                    "name" : "Twitter",
+                    "url" : "https://twitter.com/SpagOsArt"
+                }
+            ]
+        },
+        {
+            "name" : "Aqua",
+            "role" : "Co-director & Lead programmer\nI put over 100 hours into this code. I will never recover.",
+            "icon" : "credits/aqua",
+            "urls" : [
+                {
+                    "name" : "Twitter",
+                    "url" : "https://twitter.com/AquaThatOne"
+                }
+            ]
+        },
+        {
+            "name" : "fabs",
+            "role" : "Modelled and animated Animdude and Boyfriend in Fourth Wall & Coded Fourth-Wall visuals",
+            "icon" : "credits/fabs",
+            "urls" : [
+                {
+                    "name" : "Twitter",
+                    "url" : "https://twitter.com/SGIObama"
+                }
+            ]
+        },
+        {
+            "name" : "Clowfoe",
+            "role" : "Helped code UI and Discord RPC & Freeplay portraits",
+            "icon" : "credits/clowfoe",
+            "urls" : [
+                {
+                    "name" : "Twitter",
+                    "url" : "https://twitter.com/Clowfoe"
+                }
+            ]
+        },
+        {
+            "name" : "burnout",
+            "role" : "Artist for the Springtrap sprites",
+            "icon" : "credits/burnout",
+            "urls" : [
+                {
+                    "name" : "Twitter",
+                    "url" : "https://twitter.com/creepercrunch"
+                }
+            ]
+        },
+        {
+            "name" : "Orbyy",
+            "role" : "Artist for Ghost BF sprites",
+            "icon" : "credits/orbyy",
+            "urls" : [
+                {
+                    "name" : "Twitter",
+                    "url" : "https://twitter.com/OrbyyNew"
+                }
+            ]
+        },
+        {
+            "name" : "Notakin",
+            "role" : "Artist for Shadow Bonnie, and Afton in Midnight",
+            "icon" : "credits/notakin",
+            "urls" : [
+                {
+                    "name" : "Twitter",
+                    "url" : "https://twitter.com/ItsNotakin"
+                }
+            ]
+        },
+        {
+            "name" : "Snak",
+            "role" : "Artist for Pixel Matpat and Pixel Matpat Boyfriend",
+            "icon" : "credits/snak",
+            "urls" : [
+                {
+                    "name" : "Twitter",
+                    "url" : "https://twitter.com/TravelerSnak"
+                }
+            ]
+        },
+        {
+            "name" : "Ellis",
+            "role" : "Promotional Art on Gamejolt and Gamebanana, Springtrap Icon",
+            "icon" : "credits/ellis",
+            "urls" : [
+                {
+                    "name" : "Twitter",
+                    "url" : "https://twitter.com/EllisBros"
+                }
+            ]
+        },
+        {
+            "name" : "ThatGoofyGuy",
+            "role" : "Promotional Art",
+            "icon" : "credits/goofy",
+            "urls" : [
+                {
+                    "name" : "Twitter",
+                    "url" : "https://twitter.com/TGGtheStickBoy"
+                }
+            ]
+        },
+        {
+            "name" : "Piss Bottler",
+            "role" : "Fazbars sprites and helped with the text on the title screen and Fourth-Wall",
+            "icon" : "credits/piss",
+            "urls" : [
+                {
+                    "name" : "Twitter",
+                    "url" : "https://twitter.com/PissBottle6"
+                }
+            ]
+        },
+        {
+            "name" : "Punkett",
+            "role" : "Composer of the main Afton week, Umbra, and Just-A-Theory",
+            "icon" : "credits/punkett",
+            "urls" : [
+                {
+                    "name" : "Twitter",
+                    "url" : "https://twitter.com/_punkett"
+                }
+            ]
+        },
+        {
+            "name" : "Jacaris",
+            "role" : "Composer of Fourth-Wall and Nightmare",
+            "icon" : "credits/jacey",
+            "urls" : [
+                {
+                    "name" : "Twitter",
+                    "url" : "https://twitter.com/JaceyAmaris"
+                }
+            ]
+        },
+        {
+            "name" : "Nimbus Cumulus",
+            "role" : "Composer of Salvage",
+            "icon" : "credits/nimbus",
+            "urls" : [
+                {
+                    "name" : "Twitter",
+                    "url" : "https://nimbuscumulus.newgrounds.com/"
+                }
+            ]
+        },
+        {
+            "name" : "EthanTheDoodler",
+            "role" : "Composer of Fazbars and vocals of Just-A-Theory",
+            "icon" : "credits/ethan",
+            "urls" : [
+                {
+                    "name" : "Twitter",
+                    "url" : "https://twitter.com/D00dlerEthan"
+                }
+            ]
+        },
+        {
+            "name" : "Cval",
+            "role" : "Original composer of Follow-Me",
+            "icon" : "credits/cval",
+            "urls" : [
+                {
+                    "name" : "Twitter",
+                    "url" : "https://twitter.com/cval_brown"
+                }
+            ]
+        },
+        {
+            "name" : "Evan",
+            "role" : "Springtrap Voice Actor",
+            "icon" : "credits/evan",
+            "urls" : [
+                {
+                    "name" : "Twitter",
+                    "url" : "https://twitter.com/Bravvyy_"
+                }
+            ]
+        },
+        {
+            "name" : "Gonk",
+            "role" : "Charted Follow-Me, Midnight, You-Can't, Salvage, Nightmare, Just-A-Theory, Fourth-Wall",
+            "icon" : "credits/gonk",
+            "urls" : [
+                {
+                    "name" : "Twitter",
+                    "url" : "https://twitter.com/StupidGoatMan"
+                }
+            ]
+        },
+        {
+            "name" : "Gibz",
+            "role" : "Charted Celebrate, Umbra\nslow ass charter",
+            "icon" : "credits/gibz",
+            "urls" : [
+                {
+                    "name" : "Twitter",
+                    "url" : "https://twitter.com/gibz679"
+                }
+            ]
+        },
+        {
+            "name" : "loggo",
+            "role" : "Charted Fazbars\nsorry",
+            "icon" : "credits/loggo",
+            "urls" : [
+                {
+                    "name" : "Twitter",
+                    "url" : "https://twitter.com/loggoman512"
+                }
+            ]
+        },
+        {
+            "name" : "gongo.",
+            "role" : "gongo,,,",
+            "icon" : "credits/gongo",
+            "urls" : [
+                {
+                    "name" : "Twitter",
+                    "url" : "https://twitter.com/_the_gb_"
+                }
+            ]
+        }
+    ]
+}
