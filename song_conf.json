@@ -1,1 +1,69 @@
-{"songs":[{"scripts":[],"difficulties":[],"end_cutscene":null,"cutscene":null,"name":"just-a-theory"},{"scripts":[],"difficulties":[],"end_cutscene":null,"cutscene":null,"name":"celebrate"},{"scripts":[],"difficulties":[],"end_cutscene":null,"cutscene":null,"name":"follow-me"},{"scripts":[],"difficulties":[],"end_cutscene":null,"cutscene":null,"name":"midnight"},{"scripts":[],"difficulties":[],"end_cutscene":null,"cutscene":null,"name":"nightmare"},{"scripts":[],"difficulties":[],"end_cutscene":null,"cutscene":null,"name":"salvage"},{"scripts":[],"difficulties":[],"end_cutscene":null,"cutscene":null,"name":"umbra"},{"scripts":[],"difficulties":[],"end_cutscene":null,"cutscene":null,"name":"you-can't"},{"scripts":[],"difficulties":[],"end_cutscene":null,"cutscene":null,"name":"fourth-wall"}]}
+{
+	"songs": [
+		{
+			"scripts": [],
+			"difficulties": [],
+			"end_cutscene": null,
+			"cutscene": null,
+			"name": "just-a-theory"
+		},
+		{
+			"scripts": [],
+			"difficulties": [],
+			"end_cutscene": null,
+			"cutscene": null,
+			"name": "celebrate"
+		},
+		{
+			"scripts": [],
+			"difficulties": [],
+			"end_cutscene": null,
+			"cutscene": null,
+			"name": "follow-me"
+		},
+		{
+			"scripts": [],
+			"difficulties": [],
+			"end_cutscene": null,
+			"cutscene": null,
+			"name": "midnight"
+		},
+		{
+			"scripts": [],
+			"difficulties": [],
+			"end_cutscene": null,
+			"cutscene": null,
+			"name": "nightmare"
+		},
+		{
+			"scripts": [],
+			"difficulties": [],
+			"end_cutscene": null,
+			"cutscene": null,
+			"name": "salvage"
+		},
+		{
+			"scripts": [],
+			"difficulties": [],
+			"end_cutscene": null,
+			"cutscene": null,
+			"name": "you-can't"
+		},
+		{
+			"scripts": [],
+			"difficulties": [],
+			"end_cutscene": null,
+			"cutscene": null,
+			"name": "fourth-wall"
+		},
+		{
+			"end_cutscene": null,
+			"cutscene": null,
+			"difficulties": null,
+			"scripts": [
+				"stages/umbra"
+			],
+			"name": "umbra"
+		}
+	]
+}

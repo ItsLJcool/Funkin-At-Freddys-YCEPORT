@@ -4,7 +4,7 @@ var songName = PlayState.song.song.toLowerCase();
 function createPost() {
     trace(songName);
     switch(songName) {
-      case "celebrate", "follow-me", "midnight", "you-can't":
+      case "celebrate", "follow-me", "midnight", "you-can't", "umbra":
         text();
     }
 }

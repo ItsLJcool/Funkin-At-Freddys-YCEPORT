@@ -7,7 +7,7 @@ var blackScreen1:FlxSprite;
 function create() {
 
     switch(songName) {
-        case "celebrate", "follow-me", "midnight", "you-can't":
+        case "celebrate", "follow-me", "midnight", "you-can't", "umbra":
             pixelatedYES = true;
 
             arcadeoverlay = new FlxSprite(0, 0).loadGraphic(Paths.image('stages/ac'));
@@ -16,7 +16,7 @@ function create() {
             arcadeoverlay.updateHitbox();
             arcadeoverlay.screenCenter();
             arcadeoverlay.y -= 30;
-            PlayState.add(arcadeoverlay);
+            if (songName != "umbra") PlayState.add(arcadeoverlay);
             arcadeoverlay.cameras = [PlayState.camHUD];
 
             three = Paths.sound("intro3-pixel");
@@ -86,7 +86,8 @@ function create() {
 
 function onGenerateStaticArrows() {
     if (pixelatedYES) {
-        blackScreen1 = new FlxSprite(-600, -400).makeGraphic(Std.int(FlxG.width * 5), Std.int(FlxG.height * 5), 0xFF000000);
+        blackScreen1 = new FlxSprite(0,0).makeGraphic(Std.int(FlxG.width * 5), Std.int(FlxG.height * 5), 0xFF000000);
+        blackScreen1.screenCenter();
         PlayState.add(blackScreen1);
     
         scan = new FlxSprite(-30, -100).loadGraphic(Paths.image('stages/scanline'));
@@ -97,6 +98,15 @@ function onGenerateStaticArrows() {
         PlayState.add(scan);
 
         camHUD.alpha = 0.0001;
+    }
+}
+
+function onGuiPopup() {
+    if (songName == "umbra") {
+        PlayState.healthBar.visible = false;
+        PlayState.healthBarBG.visible = false;
+        PlayState.iconP1.visible = false;
+        PlayState.iconP2.visible = false;
     }
 }
 
@@ -197,9 +207,9 @@ function musicstart() {
         camHUD.alpha = 1;
     }
 }
-var lastRating:Rating = null;
+
 function onShowCombo(combo:Int, coolText:FlxPoint) {
-    if (pixelatedYES) {
+    if (pixelatedYES && songName != 'umbra') {
         var seperatedScore:Array<Int> = [];
 
         var stringCombo = Std.string(combo);
@@ -232,4 +242,6 @@ function onShowCombo(combo:Int, coolText:FlxPoint) {
             daLoop++;
         }
     }
+    else if (pixelatedYES && songName == "umbra")
+        coolText.x = -99999999;
 }
