@@ -1,1 +1,52 @@
-{"weeks":[{"selectSFX":"confirmMenu","difficulties":null,"color":"0xFFF9CF51","name":"Haha If you see this stop cheating with Hscript thanks","bf":{"animation":"BF idle dance white","file":"storymenu/campaign_menu_UI_characters","confirmAnim":"BF HEY!!","scale":0.9,"offset":[100,20],"flipX":false},"bg":"","bgAnim":"","songs":["Celebrate","Follow-Me","Midnight","You-Can't"],"dad":{"animation":"Dad idle dance BLACK LINE","file":"storymenu/campaign_menu_UI_characters","confirmAnim":"","scale":0.5,"offset":[120,200],"flipX":false},"gf":{"animation":"GF Dancing Beat WHITE","file":"storymenu/campaign_menu_UI_characters","confirmAnim":"","scale":0.5,"offset":[150,159],"flipX":false},"buttonSprite":"storymenu/week1"}]}
+{
+    "weeks": [
+        {
+            "selectSFX": "confirmMenu",
+            "difficulties": null,
+            "color": "0xFFF9CF51",
+            "name": "Haha If you see this stop cheating with Hscript thanks",
+            "bf": {
+                "animation": "BF idle dance white",
+                "file": "storymenu/campaign_menu_UI_characters",
+                "confirmAnim": "BF HEY!!",
+                "scale": 0.9,
+                "offset": [
+                    100,
+                    20
+                ],
+                "flipX": false
+            },
+            "bg": "",
+            "bgAnim": "",
+            "songs": [
+                "Celebrate",
+                "Follow-Me",
+                "Midnight",
+                "You-Can't"
+            ],
+            "dad": {
+                "animation": "Dad idle dance BLACK LINE",
+                "file": "storymenu/campaign_menu_UI_characters",
+                "confirmAnim": "",
+                "scale": 0.5,
+                "offset": [
+                    120,
+                    200
+                ],
+                "flipX": false
+            },
+            "gf": {
+                "animation": "GF Dancing Beat WHITE",
+                "file": "storymenu/campaign_menu_UI_characters",
+                "confirmAnim": "",
+                "scale": 0.5,
+                "offset": [
+                    150,
+                    159
+                ],
+                "flipX": false
+            },
+            "buttonSprite": "storymenu/week1"
+        }
+    ]
+}
