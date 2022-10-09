@@ -6,7 +6,7 @@ var moveCam = 20;
 var songName = PlayState.song.song.toLowerCase();
 function create() {
     switch(songName) {
-      case "just-a-theory", "salvage", "nightmare":
+      case "just-a-theory", "salvage", "nightmare", "umbra":
         moveCam = 20;
       case "fourth-wall":
         moveCam = 100;
@@ -27,7 +27,7 @@ function camMove() {
   var animName = "";
   var animNameGF = "";
   if (PlayState.section.mustHitSection) {
-      (songName == "fourth-wall") ? animName = PlayState.dad.animation.curAnim.name : animName = PlayState.boyfriend.animation.curAnim.name;
+      (songName == "fourth-wall" || songName == "umbra") ? animName = PlayState.dad.animation.curAnim.name : animName = PlayState.boyfriend.animation.curAnim.name;
       animNameGF = PlayState.gf.animation.curAnim.name; }
   else {
       animName = PlayState.dad.animation.curAnim.name; 

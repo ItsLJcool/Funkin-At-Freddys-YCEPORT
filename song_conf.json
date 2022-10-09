@@ -47,13 +47,6 @@
 			"difficulties": [],
 			"end_cutscene": null,
 			"cutscene": null,
-			"name": "umbra"
-		},
-		{
-			"scripts": [],
-			"difficulties": [],
-			"end_cutscene": null,
-			"cutscene": null,
 			"name": "you-can't"
 		},
 		{
@@ -62,6 +55,15 @@
 			"end_cutscene": null,
 			"cutscene": null,
 			"name": "fourth-wall"
+		},
+		{
+			"end_cutscene": null,
+			"cutscene": null,
+			"difficulties": null,
+			"scripts": [
+				"stages/umbra"
+			],
+			"name": "umbra"
 		}
 	]
 }
