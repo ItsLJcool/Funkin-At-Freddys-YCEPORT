@@ -1,3 +1,5 @@
+var bb:FlxSprite;
+var canGlitchSalvage = false;
 //a
 function onGenerateStaticArrows() {
     puppet = new FlxSprite(0, -400);
@@ -31,6 +33,7 @@ function onGenerateStaticArrows() {
     bb.frames = Paths.getSparrowAtlas('stages/fright/phantom_bb');
     bb.animation.addByPrefix('scare', "phantom_bb idle", 20);
     bb.animation.addByPrefix('empty', "phantom_bb empty", 20);
+    bb.animation.play('empty');
     bb.alpha = 0;
     bb.antialiasing = true;
     bb.cameras = [camHUD];
@@ -58,7 +61,7 @@ function onGenerateStaticArrows() {
     sixAM.animation.addByPrefix('static', "6am static", 24);
     sixAM.animation.addByPrefix('chime', "6am chime", 24);
     sixAM.alpha = 0;
-    sixAM.antialiasing = EngineSettings.antialiasing;
+    sixAM.antialiasing = false;
     sixAM.screenCenter();
     sixAM.cameras = [camHUD];
     add(sixAM);
@@ -106,20 +109,74 @@ function stepHit(curStep:Int) {
     }
 }
 
-function poopet() {
+function poopet(value1) {
     var charType:Int = Std.parseInt(value1);
     if(Math.isNaN(charType)) charType = 0;
             
     switch(charType) {
         case 0:
-            if(ClientPrefs.downScroll == true)
+            if(EngineSettings.downscroll == true)
                 FlxTween.tween(puppet, { y: 300}, 1.5);
             else
                 FlxTween.tween(puppet, { y: FlxG.height - 650}, 1.5);
         case 1:
-            if(ClientPrefs.downScroll == true)
+            if(EngineSettings.downscroll == true)
                 FlxTween.tween(puppet, { y: 600}, 3);
             else
                 FlxTween.tween(puppet, { y: -400}, 3);
+    }
+}
+
+function babyBoy() {
+    trace("OH MY GOD");
+        bb.alpha = 1;
+        bb.animation.play('scare');
+        FlxTween.tween(bb, {alpha: 0}, 2, {onComplete:
+            function (twn:FlxTween) {
+                bb.animation.play('empty');
+            }
+        });
+}
+
+function chicamoment(value1) {
+    var charType:Int = Std.parseInt(value1);
+    if(Math.isNaN(charType)) charType = 0;
+                
+    switch(charType) {
+        case 1:
+            chica.alpha = 1;
+            chica.animation.play('scare');
+            FlxG.sound.play(Paths.sound('jumpscare'));
+            new FlxTimer().start(0.8, function(tmr:FlxTimer){
+                chica.alpha = 0;
+            });
+    }
+}
+
+function sixam() {
+    canGlitchSalvage = false;
+    sixAM.animation.play('static');
+    autoCamZooming = false;
+
+    FlxTween.tween(salvageBlack, {alpha: 1}, 1);
+    FlxTween.tween(sixAM, {alpha: 1}, 1, {onComplete:
+        function (twn:FlxTween) {
+            canGlitchSalvage = true;
+            new FlxTimer().start(5.1, function(tmr:FlxTimer){
+                canGlitchSalvage = false;
+                glitchSixAM.alpha = 0;
+            });
+        }
+    });
+}
+
+function update() {
+    if(glitchSixAM.animation.curAnim.curFrame == 5){
+        if(canGlitchSalvage){
+            glitchSixAM.alpha = 1;
+            glitch6amY = FlxG.random.int(300, 380);
+            sixAM.animation.play('chime');
+            glitchSixAM.y = glitch6amY;
+        }
     }
 }
