@@ -7,7 +7,7 @@ var blackScreen1:FlxSprite;
 function create() {
 
     switch(songName) {
-        case "celebrate", "follow-me", "midnight", "you-can't", "umbra":
+        case "celebrate", "follow-me", "midnight", "you-can't", "umbra", "consequences":
             pixelatedYES = true;
 
             arcadeoverlay = new FlxSprite(0, 0).loadGraphic(Paths.image('stages/ac'));
@@ -16,7 +16,7 @@ function create() {
             arcadeoverlay.updateHitbox();
             arcadeoverlay.screenCenter();
             arcadeoverlay.y -= 30;
-            if (songName != "umbra") PlayState.add(arcadeoverlay);
+            if (songName != "umbra" && songName != "consequences") PlayState.add(arcadeoverlay);
             arcadeoverlay.cameras = [PlayState.camHUD];
 
             three = Paths.sound("intro3-pixel");
@@ -102,7 +102,7 @@ function onGenerateStaticArrows() {
 }
 
 function onGuiPopup() {
-    if (songName == "umbra") {
+    if (songName == "umbra" || songName == 'consequences') {
         PlayState.healthBar.visible = false;
         PlayState.healthBarBG.visible = false;
         PlayState.iconP1.visible = false;
@@ -208,7 +208,7 @@ function musicstart() {
 }
 
 function onShowCombo(combo:Int, coolText:FlxPoint) {
-    if (pixelatedYES && songName != 'umbra') {
+    if (pixelatedYES && (songName != 'umbra' && songName != 'consequences')) {
         var seperatedScore:Array<Int> = [];
 
         var stringCombo = Std.string(combo);
@@ -248,6 +248,6 @@ function onShowCombo(combo:Int, coolText:FlxPoint) {
             daLoop++;
         }
     }
-    else if (pixelatedYES && songName == "umbra")
+    else if (pixelatedYES && (songName == 'umbra' || songName == 'consequences'))
         coolText.x = -99999999;
 }

@@ -1,14 +1,13 @@
 enableRating = true;
 var song = PlayState.song.song.toLowerCase();
 var pixelsNote:Bool = false;
+switch(song) {
+    case "celebrate", "follow-me", "midnight", "you-can't", "umbra", "consequences":
+        pixelsNote = true;
+    default:
+        pixelsNote = false;
+}
 function create() {
-    switch(song) {
-        case "celebrate", "follow-me", "midnight", "you-can't", "umbra":
-            pixelsNote = true;
-        default:
-            pixelsNote = false;
-    }
-    trace(pixelsNote);
     if (!pixelsNote) {
     note.frames = Paths.getSparrowAtlas('NOTE_assets_colored', 'shared');
 
@@ -44,8 +43,8 @@ function create() {
         note.animation.play("holdend");
     }
     } else {
-        note.loadGraphic(Paths.image('weeb/pixelUI/arrows-pixels-colored'), true, 17, 17);
-        note.colored = true;
+        (song != 'consequences') ? note.loadGraphic(Paths.image('weeb/pixelUI/arrows-pixels-colored'), true, 17, 17) : note.loadGraphic(Paths.image('weeb/pixelUI/CONSEQUENCES_NOTE_assets'), true, 17, 17);
+        (song != 'consequences') ? note.colored = true : note.colored = false;
         
         switch(note.noteData % 4) {
             case 0:
@@ -63,7 +62,7 @@ function create() {
         if (note.isSustainNote)
         {
             note.noteOffset.x += 30;
-            note.loadGraphic(Paths.image('weeb/pixelUI/arrowEnds-colored'), true, 7, 6);
+            (song != 'consequences') ? note.loadGraphic(Paths.image('weeb/pixelUI/arrowEnds-colored'), true, 7, 6) : note.loadGraphic(Paths.image('weeb/pixelUI/CONSEQUENCES_NOTE_assetsENDS'), true, 7, 6);
     
             switch(note.noteData % 4) {
                 case 0:
@@ -95,11 +94,11 @@ function create() {
         note.updateHitbox();
     }
 }
-
-
-if (pixelsNote) {
 function generateStaticArrow(babyArrow:FlxSprite, i:Int) {
-    babyArrow.loadGraphic(Paths.image('weeb/pixelUI/arrows-pixels-colored'), true, 17, 17);
+    
+    (song != 'consequences') ? babyArrow.colored = true : babyArrow.colored = false;
+    if (pixelsNote) {
+    (song != 'consequences') ? babyArrow.loadGraphic(Paths.image('weeb/pixelUI/arrows-pixels-colored'), true, 17, 17) : babyArrow.loadGraphic(Paths.image('weeb/pixelUI/CONSEQUENCES_NOTE_assets'), true, 17, 17);
     babyArrow.animation.add('green', [6]);
     babyArrow.animation.add('red', [7]);
     babyArrow.animation.add('blue', [5]);
@@ -108,8 +107,6 @@ function generateStaticArrow(babyArrow:FlxSprite, i:Int) {
     babyArrow.setGraphicSize(Std.int(babyArrow.width * PlayState_.daPixelZoom));
     babyArrow.updateHitbox();
     babyArrow.antialiasing = false;
-    
-    babyArrow.colored = true;
     
     var noteNumberScheme:Array<NoteDirection> = Note.noteNumberSchemes[PlayState.song.keyNumber];
     if (noteNumberScheme == null) noteNumberScheme = Note.noteNumberSchemes[4];
@@ -132,6 +129,39 @@ function generateStaticArrow(babyArrow:FlxSprite, i:Int) {
             babyArrow.animation.add('pressed', [7, 11], 12, false);
             babyArrow.animation.add('confirm', [15, 19], 24, false);
     }
+    }
+    else {
+        babyArrow.frames = Paths.getSparrowAtlas('NOTE_assets_colored', 'shared');
+        babyArrow.animation.addByPrefix('green', 'arrowUP');
+        babyArrow.animation.addByPrefix('blue', 'arrowDOWN');
+        babyArrow.animation.addByPrefix('purple', 'arrowLEFT0');
+        babyArrow.animation.addByPrefix('red', 'arrowRIGHT0');
+
+        babyArrow.antialiasing = true;
+        babyArrow.setGraphicSize(Std.int(babyArrow.width * 0.7));
+
+        var noteNumberScheme:Array<NoteDirection> = Note.noteNumberSchemes[PlayState.song.keyNumber];
+        if (noteNumberScheme == null) noteNumberScheme = Note.noteNumberSchemes[4];
+        switch (noteNumberScheme[i % noteNumberScheme.length])
+        {
+            case 0:
+				babyArrow.animation.addByPrefix('static', 'arrowLEFT0');
+				babyArrow.animation.addByPrefix('pressed', 'left press', 24, false);
+				babyArrow.animation.addByPrefix('confirm', 'left confirm', 24, false);
+            case 1:
+                babyArrow.animation.addByPrefix('static', 'arrowDOWN');
+                babyArrow.animation.addByPrefix('pressed', 'down press', 24, false);
+                babyArrow.animation.addByPrefix('confirm', 'down confirm', 24, false);
+            case 2:
+                babyArrow.animation.addByPrefix('static', 'arrowUP');
+                babyArrow.animation.addByPrefix('pressed', 'up press', 24, false);
+                babyArrow.animation.addByPrefix('confirm', 'up confirm', 24, false);
+            case 3:
+                babyArrow.animation.addByPrefix('static', 'arrowRIGHT0');
+                babyArrow.animation.addByPrefix('pressed', 'right press', 24, false);
+                babyArrow.animation.addByPrefix('confirm', 'right confirm', 24, false);
+        }
+                
     }
 }
 

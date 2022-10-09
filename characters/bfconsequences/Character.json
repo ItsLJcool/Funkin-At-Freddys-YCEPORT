@@ -8,18 +8,9 @@
 		"x": 160,
 		"y": 510
 	},
-	"healthbarColor": "#0066CC",
+	"healthbarColor": "#F87470",
 	"flipX": true,
 	"anims": [
-		{
-			"indices": null,
-			"x": 25,
-			"y": 0,
-			"anim": "BF NOTE RIGHT MISS",
-			"loop": false,
-			"name": "singRIGHTmiss",
-			"framerate": 24
-		},
 		{
 			"indices": null,
 			"x": 5,
@@ -27,6 +18,15 @@
 			"anim": "BF NOTE DOWN HIT",
 			"loop": false,
 			"name": "singDOWN",
+			"framerate": 24
+		},
+		{
+			"indices": null,
+			"x": 25,
+			"y": 0,
+			"anim": "BF NOTE RIGHT MISS",
+			"loop": false,
+			"name": "singRIGHTmiss",
 			"framerate": 24
 		},
 		{
@@ -67,6 +67,15 @@
 		},
 		{
 			"indices": null,
+			"x": 5,
+			"y": 0,
+			"anim": "BF NOTE DOWN MISS",
+			"loop": false,
+			"name": "sinDOWNmiss",
+			"framerate": 24
+		},
+		{
+			"indices": null,
 			"x": -4,
 			"y": 0,
 			"anim": "BF NOTE UP MISS",
@@ -81,15 +90,6 @@
 			"anim": "BF NOTE LEFT HIT",
 			"loop": false,
 			"name": "singLEFT",
-			"framerate": 24
-		},
-		{
-			"indices": null,
-			"x": 5,
-			"y": 0,
-			"anim": "BF NOTE DOWN MISS",
-			"loop": false,
-			"name": "sinDOWNmiss",
 			"framerate": 24
 		}
 	],
