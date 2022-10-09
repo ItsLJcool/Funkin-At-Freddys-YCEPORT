@@ -64,6 +64,13 @@
 			"end_cutscene": null,
 			"cutscene": null,
 			"name": "umbra"
+		},
+		{
+			"scripts": [],
+			"difficulties": [],
+			"end_cutscene": null,
+			"cutscene": null,
+			"name": "consequences"
 		}
 	]
 }

@@ -1,102 +1,103 @@
 {
 	"songs": [
 		{
-			"displayName": null,
 			"difficulties": [
 				"Easy",
 				"Normal",
 				"Hard"
 			],
+			"displayName": null,
 			"char": "afton",
-			"color": "#9F58B6",
 			"name": "Celebrate",
 			"color": "#A357AB"
 		},
 		{
+			"displayName": null,
 			"difficulties": [
 				"Easy",
 				"Normal",
 				"Hard"
 			],
-			"displayName": null,
 			"char": "afton",
-			"color": "#A357AB",
 			"name": "Follow-me",
 			"color": "#C26ECF"
 		},
 		{
-			"displayName": null,
 			"difficulties": [
 				"Easy",
 				"Normal",
 				"Hard"
 			],
+			"displayName": null,
 			"char": "aftonNight",
-			"color": "#9F4AC4",
 			"name": "midnight",
 			"color": "#A357AB"
 		},
 		{
+			"displayName": null,
 			"difficulties": [
 				"Easy",
 				"Normal",
 				"Hard"
 			],
-			"displayName": null,
 			"char": "suitedAfton",
-			"color": "#B28607",
 			"name": "you-can't",
 			"color": "#B1B323"
 		},
 		{
-			"displayName": null,
 			"difficulties": [
 				"Normal"
 			],
+			"displayName": null,
 			"char": "springtrap",
-			"color": "#465F25",
 			"name": "salvage",
 			"color": "#252418"
 		},
 		{
-			"displayName": null,
 			"difficulties": [
 				"Normal"
 			],
+			"displayName": null,
 			"char": "springtrap",
-			"color": "#4D7128",
 			"name": "nightmare",
 			"color": "#252418"
 		},
 		{
+			"displayName": null,
 			"difficulties": [
 				"Normal"
 			],
-			"displayName": null,
 			"char": "sb",
-			"color": "#3B003B",
 			"name": "umbra",
 			"color": "#560053"
 		},
 		{
+			"displayName": null,
 			"difficulties": [
 				"Normal"
 			],
-			"displayName": null,
 			"char": "matpat",
-			"color": "#96D162",
 			"name": "Just-A-Theory",
 			"color": "#9FEA9A"
 		},
 		{
-			"displayName": "Fourth Wall",
 			"difficulties": [
 				"Normal"
 			],
+			"displayName": "Fourth Wall",
 			"char": "ScottMan",
-			"color": "#FFFFFF",
 			"name": "fourth-wall",
 			"color": "#BCE1FA"
+		},
+		{
+			"bpm": 150,
+			"difficulties": [
+				"Normal"
+			],
+			"displayName": null,
+			"char": "bf",
+			"name": "consequences",
+			"color": "#FFFFFF"
 		}
 	]
 }
