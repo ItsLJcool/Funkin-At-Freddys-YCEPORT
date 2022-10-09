@@ -40,7 +40,7 @@ function onGenerateStaticArrows() {
     add(bb);
     
     salvageBlack = new FlxSprite(-600, -400).makeGraphic(Std.int(FlxG.width * 5), Std.int(FlxG.height * 5), 0xFF000000);
-    salvageBlack.alpha = 0;
+    salvageBlack.alpha = 1;
     salvageBlack.cameras = [camHUD];
     salvageBlack.screenCenter();
     add(salvageBlack);
@@ -156,6 +156,7 @@ function chicamoment(value1) {
 function sixam() {
     canGlitchSalvage = false;
     sixAM.animation.play('static');
+    autoCamZooming = false;
 
     FlxTween.tween(salvageBlack, {alpha: 1}, 1);
     FlxTween.tween(sixAM, {alpha: 1}, 1, {onComplete:
