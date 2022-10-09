@@ -9,19 +9,6 @@ function create() {
     insert(100, boyfriend);
     remove(dad);
     insert(100, dad);
-
-    bars = new FlxSprite(-30, -100).loadGraphic(Paths.image('stages/ac'));
-    bars.antialiasing = EngineSettings.antialiasing;
-    bars.scale.set(1, 1);
-    bars.cameras = [PlayState.camHUD];
-    bars.updateHitbox();
-    PlayState.add(bars);
-}
-
-function update() {
-    PlayState.camFollow.y = 500;
-    PlayState.camFollow.x = 600;
-    FlxG.camera.focusOn(PlayState.camFollow.getPosition());
 }
 
 function stepHit(curStep:Int) {
