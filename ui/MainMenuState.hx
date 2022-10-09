@@ -2,6 +2,7 @@
 import flixel.effects.FlxFlicker;
 import PlayState;
 import CoolUtil;
+import LoadingState;
 import flixel.input.mouse.FlxMouseEventManager;
 
 // keys cool
@@ -20,7 +21,7 @@ var arrowMenu:FlxSprite;
 var difficultyMenu:FlxSprite;
 function create() {
 }
-
+var storyWeek:Json = Json.parse(Assets.getText(Paths.getPath('weeks.json', 'TEXT', 'mods/' + mod))); // fucking Xav forgoring :skull:
 var selectedSomethin:Bool = false;
 function createPost() {
     
@@ -170,7 +171,7 @@ function update(elapsed:Float) {
                         trace(daChoice);
                         switch (daChoice) {
                             case 'afton':
-                                playSongs();
+                                loadAndPlayStoryWeek(0, difficArray[curDifficulty]);
                             case 'extras':
                                 FlxG.switchState(new FreeplayState());
                             case 'credits':
@@ -182,15 +183,24 @@ function update(elapsed:Float) {
                 }
             }
         }
-}
-/**
-    Loads the week within PlayState's shit and goes to it lmao
-    !! Don't forget to import LoadingState and PlayState !!
-    @param weekID `Int` The week number. If you're trying to load the first week, for example, you would put 0.
-    @param difficulty `String` The week's difficulty.
+}/**
+    What `CoolUtil.loadWeek()` tried to do, but nothing was made for it.
 
-    @ Thanks Xav!
+    @param weekID `Type: Int` The week number. If you're trying to load the first week, for example, you would put 0, because coders start counting at 0 :3
+    @param difficulty `Type: String` The difficulty to play the week at
 **/
+function loadAndPlayStoryWeek(weekID:Int, difficulty:String) {
+    PlayState.actualModWeek = storyWeek.weeks[weekID];
+    PlayState.songMod = storyWeek.weeks[weekID].mod;
+    PlayState.storyPlaylist = storyWeek.weeks[weekID].songs;
+    PlayState.startTime = 0;
+    PlayState.storyDifficulty = difficulty;
+    CoolUtil.loadSong(mod, storyWeek.weeks[weekID].songs[0].toString(), difficulty);
+    PlayState.storyWeek = weekID;
+    PlayState.campaignScore = 0;
+    PlayState.isStoryMode = true;
+    LoadingState.loadAndSwitchState(new PlayState());
+}
 function playSongs() {
     // CoolUtil.loadSong(mod, "burning-in-hell", "hard");
     // LoadingState.loadAndSwitchState(new PlayState_());
@@ -231,6 +241,7 @@ function changeItem(huh:Int = 0) {
 	}
 }
 var curDifficulty:Int = 0;
+var difficArray:Array<String> = ['easy','normal','hard'];
 function changeDiff(huh:Int = 0) {
     curDifficulty += huh;
 
@@ -238,8 +249,6 @@ function changeDiff(huh:Int = 0) {
         curDifficulty = 0;
     if (curDifficulty < 0)
         curDifficulty = 2;
-
-    var difficArray:Array<String> = ['easy','normal','hard'];
 
     difficultyMenu.animation.play(difficArray[curDifficulty]);
     switch (curDifficulty)
