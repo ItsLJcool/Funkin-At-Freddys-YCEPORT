@@ -29,7 +29,7 @@ function createPost() {
 	songImage = new FlxSprite();
 	songImage.frames = Paths.getSparrowAtlas('fpstuff/freeplay');
 
-	var animList = [
+	var animList:Array<Array<String, String, Int>> = [
 		["newsong", "newsong", 2],
 		['locked', "lock", 12],
 		["celebrate", "celebrate", 12],
