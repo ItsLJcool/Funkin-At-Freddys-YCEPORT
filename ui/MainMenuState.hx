@@ -21,17 +21,16 @@ var storyWeek:Json = Json.parse(Assets.getText(Paths.getPath('weeks.json', 'TEXT
 var selectedSomethin:Bool = false;
 
 function createPost() {
+	FlxG.camera.followLerp = 0;
 	state.defaultBehaviour = false;
 	for (i in state.menuItems) {
 		state.menuItems.remove(i);
 	}
 
 	state.bg.scale.set(1, 1);
-	state.bg.scrollFactor.set();
 
 	wall = new FlxBackdrop(Paths.image('UI_Wall_Background'), 5, 1, true, true);
 	wall.setPosition(0, -343);
-	wall.scrollFactor.set();
 	wall.updateHitbox();
 	wall.velocity.set(-90, 0);
 	wall.antialiasing = EngineSettings.antialiasing;
@@ -39,11 +38,9 @@ function createPost() {
 
 	var monitor:FlxSprite = new FlxSprite(-100, 0).loadGraphic(Paths.image('UI_Monitor'));
 	monitor.setGraphicSize(Std.int(monitor.width * 1));
-	monitor.scrollFactor.set();
 	add(monitor);
 
 	arrowMenu = new FlxSprite().loadGraphic(Paths.image('mainmenu/menu_afton_arrow'));
-	arrowMenu.scrollFactor.set();
 	arrowMenu.setGraphicSize(Std.int(arrowMenu.width * 0.6));
 	arrowMenu.updateHitbox();
 	arrowMenu.antialiasing = EngineSettings.antialiasing;
@@ -51,7 +48,6 @@ function createPost() {
 
 	var aftonDifficulty:FlxSprite = new FlxSprite(325, 450).loadGraphic(Paths.image('mainmenu/menu_afton_difficulty'));
 	aftonDifficulty.setGraphicSize(Std.int(aftonDifficulty.width * 0.6));
-	aftonDifficulty.scrollFactor.set();
 	aftonDifficulty.updateHitbox();
 	add(aftonDifficulty);
 
@@ -63,47 +59,40 @@ function createPost() {
 	difficultyMenu.animation.play('hard');
 	difficultyMenu.setGraphicSize(Std.int(difficultyMenu.width * 0.6));
 	difficultyMenu.updateHitbox();
-	difficultyMenu.scrollFactor.set();
 	add(difficultyMenu);
 
 	var aftonSystem:FlxSprite = new FlxSprite(monitor.x + 117, monitor.y + 305).loadGraphic(Paths.image('mainmenu/menu_afton_system'));
 	aftonSystem.setGraphicSize(Std.int(aftonSystem.width * 0.6));
-	aftonSystem.scrollFactor.set();
 	add(aftonSystem);
 
 	var gtLogo:FlxSprite = new FlxSprite(120, -450).loadGraphic(Paths.image('mainmenu/portrait/Character_Portrait_GT_Logo'));
 	gtLogo.setGraphicSize(Std.int(gtLogo.width * 0.4));
 	// gtLogo.visible = FlxG.save.data.matpatUnlocked;
 	gtLogo.antialiasing = true;
-	gtLogo.scrollFactor.set();
 	add(gtLogo);
 
 	var shadowPortrait:FlxSprite = new FlxSprite(120, -450).loadGraphic(Paths.image('mainmenu/portrait/Character_Portrait_Shadow_Bonnie'));
 	shadowPortrait.setGraphicSize(Std.int(shadowPortrait.width * 0.4));
 	// shadowPortrait.visible = FlxG.save.data.shadowBonnieUnlocked;
 	shadowPortrait.antialiasing = true;
-	shadowPortrait.scrollFactor.set();
 	add(shadowPortrait);
 
 	var springPortrait:FlxSprite = new FlxSprite(120, -450).loadGraphic(Paths.image('mainmenu/portrait/Character_Portrait_Spring_Bonnie'));
 	springPortrait.setGraphicSize(Std.int(springPortrait.width * 0.4));
 	// springPortrait.visible = FlxG.save.data.salvageBeaten;
 	springPortrait.antialiasing = true;
-	springPortrait.scrollFactor.set();
 	add(springPortrait);
 
 	var springtrapPortrait:FlxSprite = new FlxSprite(120, -450).loadGraphic(Paths.image('mainmenu/portrait/Character_Portrait_Springtrap'));
 	springtrapPortrait.setGraphicSize(Std.int(springtrapPortrait.width * 0.4));
 	// springtrapPortrait.visible = FlxG.save.data.nightmareBeaten;
 	springtrapPortrait.antialiasing = true;
-	springtrapPortrait.scrollFactor.set();
 	add(springtrapPortrait);
 
 	var aftonPortrait:FlxSprite = new FlxSprite(120, -450).loadGraphic(Paths.image('mainmenu/portrait/Character_Portrait_Afton'));
 	aftonPortrait.setGraphicSize(Std.int(aftonPortrait.width * 0.4));
 	aftonPortrait.visible = true;
 	aftonPortrait.antialiasing = true;
-	aftonPortrait.scrollFactor.set();
 	add(aftonPortrait);
 
 	FlxMouseEventManager.add(aftonPortrait, function onMouseDown(aftonPortrait:FlxSprite) {
@@ -114,13 +103,11 @@ function createPost() {
 	scottPortrait.setGraphicSize(Std.int(scottPortrait.width * 0.4));
 	// scottPortrait.visible = FlxG.save.data.scottBeaten;
 	scottPortrait.antialiasing = true;
-	scottPortrait.scrollFactor.set();
 	add(scottPortrait);
 
 	for (i in 0...optionShit.length) {
 		var offsetY:Float = 400 - (Math.max(optionShit.length, 4) - 4) * 80;
 		var menuItem:FlxSprite = new FlxSprite(130, (i * 50) + offsetY).loadGraphic(Paths.image('mainmenu/menu_afton_' + optionShit[i]));
-		menuItem.scrollFactor.set(0, 0);
 		menuItem.antialiasing = EngineSettings.antialiasing;
 		menuItem.setGraphicSize(Std.int(menuItem.width * 0.58));
 		menuItem.updateHitbox();
@@ -131,7 +118,6 @@ function createPost() {
 
 	var logo:FlxSprite = new FlxSprite(-425, -475).loadGraphic(Paths.image('thelogo'));
 	logo.setGraphicSize(Std.int(logo.width * 0.3));
-	logo.scrollFactor.set();
 	logo.antialiasing = true;
 	add(logo);
 
