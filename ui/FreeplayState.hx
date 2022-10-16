@@ -30,7 +30,7 @@ function createPost() {
 	songImage.frames = Paths.getSparrowAtlas('fpstuff/freeplay');
 
 	var animList = [
-		["newsong", "newsong", 2],
+		["new", "new", 2],
 		['locked', "lock", 12],
 		["celebrate", "celebrate", 12],
 		["follow-me", "follow-me", 12],
@@ -42,11 +42,12 @@ function createPost() {
 		["just-a-theory", "just-a-theory", 12],
 		["fourth-wall", "fourth-wall", 12],
 		["fazbars", "fazbars", 12],
-		["consequences", "consequences", 12]
+		["consequences", "new", 12],
+		["fourth-crocs", "fourth-crocs", 12]
 	];
 
 	for (anim in animList)
-		songImage.animation.addByPrefix(anim[0], "freeplay " + anim[1], anim[2]);
+		songImage.animation.addByPrefix(anim[0], anim[1], anim[2]);
 
 	songImage.animation.play("celebrate");
 	songImage.screenCenter();

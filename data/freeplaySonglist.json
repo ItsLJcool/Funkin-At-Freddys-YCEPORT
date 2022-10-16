@@ -1,17 +1,6 @@
 {
 	"songs": [
 		{
-			"difficulties": [
-				"Easy",
-				"Normal",
-				"Hard"
-			],
-			"displayName": null,
-			"char": "afton",
-			"name": "Celebrate",
-			"color": "#A357AB"
-		},
-		{
 			"displayName": null,
 			"difficulties": [
 				"Easy",
@@ -19,8 +8,8 @@
 				"Hard"
 			],
 			"char": "afton",
-			"name": "Follow-me",
-			"color": "#C26ECF"
+			"color": "#A357AB",
+			"name": "Celebrate"
 		},
 		{
 			"difficulties": [
@@ -29,85 +18,106 @@
 				"Hard"
 			],
 			"displayName": null,
+			"char": "afton",
+			"color": "#C26ECF",
+			"name": "Follow-me"
+		},
+		{
+			"displayName": null,
+			"difficulties": [
+				"Easy",
+				"Normal",
+				"Hard"
+			],
 			"char": "aftonNight",
-			"name": "midnight",
-			"color": "#A357AB"
+			"color": "#A357AB",
+			"name": "midnight"
 		},
 		{
-			"displayName": null,
 			"difficulties": [
 				"Easy",
 				"Normal",
 				"Hard"
 			],
+			"displayName": null,
 			"char": "suitedAfton",
-			"name": "you-can't",
-			"color": "#B1B323"
+			"color": "#B1B323",
+			"name": "you-can't"
 		},
 		{
+			"displayName": null,
 			"difficulties": [
 				"Normal"
 			],
-			"displayName": null,
 			"char": "springtrap",
-			"name": "salvage",
-			"color": "#252418"
+			"color": "#252418",
+			"name": "salvage"
 		},
 		{
+			"displayName": null,
 			"difficulties": [
 				"Normal"
 			],
-			"displayName": null,
 			"char": "springtrap",
-			"name": "nightmare",
-			"color": "#252418"
+			"color": "#252418",
+			"name": "nightmare"
 		},
 		{
-			"displayName": null,
 			"difficulties": [
 				"Normal"
 			],
+			"displayName": null,
 			"char": "sb",
-			"name": "umbra",
-			"color": "#560053"
+			"color": "#560053",
+			"name": "umbra"
 		},
 		{
-			"displayName": null,
 			"difficulties": [
 				"Normal"
 			],
+			"displayName": null,
 			"char": "matpat",
-			"name": "Just-A-Theory",
-			"color": "#9FEA9A"
+			"color": "#9FEA9A",
+			"name": "Just-A-Theory"
 		},
 		{
-			"difficulties": [
-				"Normal"
-			],
 			"displayName": "Fourth Wall",
+			"difficulties": [
+				"Normal"
+			],
 			"char": "ScottMan",
-			"name": "fourth-wall",
-			"color": "#BCE1FA"
+			"color": "#BCE1FA",
+			"name": "fourth-wall"
+		},
+		{
+			"displayName": null,
+			"difficulties": [
+				"Normal"
+			],
+			"char": "bf",
+			"color": "#FF2D32",
+			"name": "consequences",
+			"bpm": 150
+		},
+		{
+			"displayName": "Fazbars",
+			"difficulties": [
+				"Normal"
+			],
+			"char": "bf",
+			"color": "#FFFFFF",
+			"name": "fazbars",
+			"bpm": 149
 		},
 		{
 			"difficulties": [
 				"Normal"
 			],
-			"displayName": null,
+			"displayName": "Fourth Crocs",
 			"char": "bf",
 			"bpm": 150,
-			"name": "consequences",
-			"color": "#FF2D32"
-		},
-		{
-			"bpm": 149,
-			"difficulties": [
-				"Normal"
-			],
-			"displayName": "Fazbars",
-			"char": "bf",
-			"name": "fazbars",
-			"color": "#FFFFFF"
+			"name": "fourth-crocs",
+			"color": "#4EF45C"
 		}
 	]
 }

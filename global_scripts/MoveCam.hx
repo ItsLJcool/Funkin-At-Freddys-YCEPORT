@@ -8,7 +8,7 @@ function create() {
     switch(songName) {
       case "just-a-theory", "salvage", "nightmare", "umbra":
         moveCam = 20;
-      case "fourth-wall":
+      case "fourth-wall", "fourth-crocs":
         moveCam = 100;
         
       default:
@@ -27,7 +27,7 @@ function camMove() {
   var animName = "";
   var animNameGF = "";
   if (PlayState.section.mustHitSection) {
-      (songName == "fourth-wall" || songName == "umbra") ? animName = PlayState.dad.animation.curAnim.name : animName = PlayState.boyfriend.animation.curAnim.name;
+      (songName == "fourth-wall" || songName == "umbra" || songName == "fourth-crocs") ? animName = PlayState.dad.animation.curAnim.name : animName = PlayState.boyfriend.animation.curAnim.name;
       animNameGF = PlayState.gf.animation.curAnim.name; }
   else {
       animName = PlayState.dad.animation.curAnim.name; 
@@ -43,5 +43,5 @@ function camMove() {
     PlayState.camFollow.y -= moveCam;
   
   if (animName == 'singDOWN' || animName =='singDOWN-alt' || animNameGF == 'singDOWN' || animNameGF == 'singDOWN-alt')
-    PlayState.camFollow.y += (songName == "fourth-wall") ? 20 : moveCam;
+    PlayState.camFollow.y += (songName == "fourth-wall" || songName == "fourth-crocs") ? 20 : moveCam;
 }
