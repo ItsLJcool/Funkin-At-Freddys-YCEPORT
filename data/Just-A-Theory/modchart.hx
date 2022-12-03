@@ -139,7 +139,7 @@ function matpattonormal() {
 }
 
 function update() {
-    if(!section.mustHitSection && !dad.visible) {
+    if(!Section.mustHitSection && !dad.visible) {
         camFollow.y += 200;   
     }
 }
