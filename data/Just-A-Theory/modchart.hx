@@ -78,6 +78,8 @@ function MatpatPixel() {
     defaultCamZoom = 1;
     gf.alpha = 0;
 
+    boyfriend.y -= 200;
+
     boyfriend.visible = false;
     dad.visible = false;
     gf.visible = false;
@@ -92,6 +94,8 @@ function Matpattopixelfirst() {
     matLogo.alpha = 1;
     defaultCamZoom = 0.8;
     gf.alpha = 0;
+
+    boyfriend.y -= 200;
 
     camHUD.visible = false;
     camFollow.x = 300;
@@ -130,6 +134,8 @@ function matpattonormal() {
     matLogo.alpha = 0;
     defaultCamZoom = 0.9;
     gf.alpha = 1;
+    
+    boyfriend.y += 200;
 
     boyfriend.visible = true;
     dad.visible = true;
