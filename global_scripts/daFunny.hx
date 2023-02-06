@@ -252,3 +252,5 @@ function onShowCombo(combo:Int, coolText:FlxPoint) {
 	else if (pixelatedYES && (songName == 'umbra' || songName == 'consequences'))
 		coolText.x = -99999999;
 }
+
+//Literally Nothing
