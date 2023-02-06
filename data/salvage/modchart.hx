@@ -89,23 +89,21 @@ function create() {
 }
 
 function stepHit(curStep:Int) {
-    if(curStep == 1) {
-        nightNewSprite.alpha = 1;
-        nightNewGlitch.alpha = 1;
-        nightNewGlitch.animation.play('glitch');
-    }
-    if(curStep == 5) {
-        nightNewGlitch.alpha = 0;
-    }
-    if(curStep == 25) {
-        FlxTween.tween(nightNewSprite, {alpha: 0}, 3);
-    }
-    if(curStep == 64) {
-        autoCamZooming = true;
-        salvageBlack.alpha = 0;
-        FlxG.camera.zoom = 0.7;
-        defaultCamZoom = 1;
-        camHUD.zoom += 2.4;
+    switch(curStep) {
+        case 1:
+            nightNewSprite.alpha = 1;
+            nightNewGlitch.alpha = 1;
+            nightNewGlitch.animation.play('glitch');
+        case 5:
+            nightNewGlitch.alpha = 0;
+        case 25:
+            FlxTween.tween(nightNewSprite, {alpha: 0}, 3);
+        case 64: 
+            autoCamZooming = true;
+            salvageBlack.alpha = 0;
+            FlxG.camera.zoom = 0.7;
+            defaultCamZoom = 1;
+            camHUD.zoom += 2.4;
     }
 }
 
