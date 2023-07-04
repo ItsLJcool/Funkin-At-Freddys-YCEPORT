@@ -78,6 +78,13 @@
 			"end_cutscene": null,
 			"cutscene": null,
 			"name": "fazbars"
+		},
+		{
+			"scripts": [],
+			"difficulties": [],
+			"end_cutscene": null,
+			"cutscene": null,
+			"name": "fourth-crocs"
 		}
 	]
 }
